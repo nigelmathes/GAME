@@ -1,47 +1,47 @@
 [
     {
-	"model": "commands_api.commands",
+        "model": "commands_api.commands",
         "pk": 1,
-	"fields": {
+        "fields": {
             "command": "Stab with Sword",
             "action": "Stab Sword",
             "message": "You thrust your sword at the enemy."
-	}
+        }
     },
     {
-	"model": "commands_api.commands",
+        "model": "commands_api.commands",
         "pk": 2,
-	"fields": {
+        "fields": {
             "command": "Slash with Sword",
             "action": "Slash Sword",
             "message": "You slash at the enemy with your sword."
-	}
+        }
     },
     {
-	"model": "commands_api.commands",
+        "model": "commands_api.commands",
         "pk": 3,
-	"fields": {
-            "command": "Cast Fireball",
+        "fields": {
+            "command": "Cast Fire Ball",
             "action": "Cast Fireball",
             "message": "You conjure a fireball and hurl it at your enemy."
-	}
+        }
     },
     {
-	"model": "commands_api.commands",
+        "model": "commands_api.commands",
         "pk": 4,
-	"fields": {
+        "fields": {
             "command": "Dodge back",
             "action": "Dodge back",
             "message": "You do a barrel roll and dodge away from your enemy"
-	}
+        }
     },
     {
-	"model": "commands_api.commands",
+        "model": "commands_api.commands",
         "pk": 5,
-	"fields": {
+        "fields": {
             "command": "Defensive Stance",
             "action": "Defend",
             "message": "You take a defensive stance, ready to block an attack."
-	}
+        }
     }
 ]

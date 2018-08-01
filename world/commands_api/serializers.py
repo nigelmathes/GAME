@@ -6,4 +6,3 @@ class CommandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Commands
         fields = '__all__'
-
