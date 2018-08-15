@@ -12,6 +12,7 @@ pylint = "*"
 "autopep8" = "*"
 spacy = "*"
 thinc = "==6.11.2"
+djangorestframework-gis = "*"
 
 [dev-packages]
 coverage = "*"
