@@ -22,7 +22,7 @@ class MatchCommands(APIView):
 
     """
 
-    def get(self, request, format=None):
+    def get(self):
 
         input_command = self.request.query_params.get('input_data', None)
 
@@ -47,6 +47,6 @@ class MatchCommands(APIView):
         serializer = CommandSerializer(matching_command)
         return Response(serializer.data)
 
-    def post(self, request, format=None):
+    def post(self):
         print(self.request.POST.get('test_val'))
         return Response("I think it worked")
