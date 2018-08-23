@@ -45,6 +45,6 @@ class MatchCommands(APIView):
         serializer = CommandSerializer(matching_command)
         return Response(serializer.data)
 
-    def post(self, request, format=None):
+    def post(self):
         print(self.request.POST.get('test_val'))
         return Response("I think it worked")
