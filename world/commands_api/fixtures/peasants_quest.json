@@ -1,9 +1,52 @@
+[
+    {
+        "model": "commands_api.commands",
+        "pk": 1,
+        "fields": {
+            "command": "ask baby lady about baby",
+            "action": "dialog",
+            "message": "This little guy's all I got left. If only someone would steal back all our riches from that filthy Jhonka."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 2,
+        "fields": {
+            "command": "ask knight about fire",
+            "action": "dialog",
+            "message": "Well, whenever I see peasants, they tend to be on fire. So get yourself on fire. I hear horse grease gives a nice, controlled burn."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 3,
+        "fields": {
+            "command": "ask baby lady about fire",
+            "action": "dialog",
+            "message": "You need fire? A couple of trees over by the waterfall used to be on fire. But now there's like a signal lantern over there or something."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 4,
+        "fields": {
+            "command": "ask baby lady about signal lantern",
+            "action": "dialog",
+            "message": "I dunno man! Whattaya want from me?"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 4,
+        "fields": {
+            "command": "ask baby lady about signal lantern",
+            "action": "dialog",
+            "message": "I dunno man! Whattaya want from me?"
+        }
+    },
 "Ask about _____":
-Baby:
-(to Baby Lady) - "This little guy's all I got left. If only someone would steal back all our riches from that filthy Jhonka."
 Fire:
-(to knight) - "Well, whenever I see peasants, they tend to be on fire. So get yourself on fire. I hear horse grease gives a nice, controlled burn."
-(to baby lady) - "You need fire? A couple of trees over by the waterfall used to be on fire. But now there's like a signal lantern over there or something." / "So should I ask that signal lantern?" you ask. / "I dunno man! Whattaya want from me?"
 (to Mendelev and Dongolev) - "Trogdor just burned down some idiot peasant's cottage. You should ask him," says Mendelev. / "Yeah, this jerk goes on vacation to some prancey lake and..." / They see you staring daggers at them and turn bright red. / "Oh. Nevermind," says Dongolev. "Um, yeah. What's a fire?" adds Mendelwhatever.
 (to Jhonka) - "Burninator make fire! Barbecue all peasants!"
 (to innkeeper) - "I've always preferred being on fire at night. Looks prettier and keeps the butterflies away."
@@ -453,3 +496,4 @@ anything else:
 "where" (anywhere) - "You're hanging out in {location}."
 "why" (anywhere) - "I wish I knew."
 "Yes" (to the Jhonka when he asks you about his riches) - "'I KILL YOU!!' screams the Jhonka. {The Jhonka clubs you to death} Club or turkey leg, the jhonka sure just beat you senseless with whatever he was holding. You dead. Thanks for playing!" (Warning: Obviously, you will die.)
+]

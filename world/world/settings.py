@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'commands_api',
+    'character',
+    'combat',
     'rest_framework',
     'django.contrib.gis'
 ]

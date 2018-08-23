@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.gis.db import models as geo_models
 
 
 class Commands(models.Model):
@@ -11,4 +10,4 @@ class Commands(models.Model):
     command = models.CharField(max_length=100)
     action = models.CharField(max_length=50)
     message = models.TextField()
-    context = models.Charfield(max_length=100)
+    context = models.CharField(max_length=100)

@@ -1,9 +1,7 @@
 from commands_api.models import Commands
 from commands_api.serializers import CommandSerializer
 from rest_framework import generics
-from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.viewsets import GenericViewSet
 from rest_framework.views import APIView
 import spacy
 import en_core_web_md
@@ -22,7 +20,7 @@ class MatchCommands(APIView):
 
     """
 
-    def get(self, request, format=None):
+    def get(self):
 
         input_command = self.request.query_params.get('input_data', None)
 
