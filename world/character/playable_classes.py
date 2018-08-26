@@ -4,15 +4,15 @@
 """
 
 
-class Dreamer(object):
+class Dreamer:
     """
     Inception-like powers, or Dr. Strange (Mage)
 
     """
     def __init__(self):
-        self._dodge = 'warp space'
-        self._block = 'blocking wall'
-        self._attack = 'black hole'
-        self._disrupt = 'moving sidewalk'
-        self._area = 'fold earth'
+        self._dodge = 'Warp Space'
+        self._block = 'Blocking Wall'
+        self._attack = 'Micro Black Hole'
+        self._disrupt = 'Moving Sidewalk'
+        self._area = 'Fold Earth'
 

@@ -15,10 +15,10 @@ class Character(models.Model):
 
 
 class Abilities(models.Model):
-    ability_name = models.CharField(max_length=12)
+    ability_name = models.CharField(max_length=20)
     character_class = models.CharField(max_length=12)
     ability_type = models.CharField(max_length=10)  # Attack/Area/Dodge/Block/Disrupt
-    added_effect = models.CharField(max_length=12)
+    added_effect = models.CharField(max_length=20)
     damage = models.IntegerField()
     heal = models.IntegerField()
     message = models.TextField()
