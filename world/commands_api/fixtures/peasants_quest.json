@@ -38,138 +38,772 @@
     },
     {
         "model": "commands_api.commands",
-        "pk": 4,
+        "pk": 5,
         "fields": {
             "command": "ask baby lady about signal lantern",
             "action": "dialog",
             "message": "I dunno man! Whattaya want from me?"
         }
     },
-"Ask about _____":
-Fire:
-(to Mendelev and Dongolev) - "Trogdor just burned down some idiot peasant's cottage. You should ask him," says Mendelev. / "Yeah, this jerk goes on vacation to some prancey lake and..." / They see you staring daggers at them and turn bright red. / "Oh. Nevermind," says Dongolev. "Um, yeah. What's a fire?" adds Mendelwhatever.
-(to Jhonka) - "Burninator make fire! Barbecue all peasants!"
-(to innkeeper) - "I've always preferred being on fire at night. Looks prettier and keeps the butterflies away."
-Jhonka:
-(to knight) - "Since the Kerrek showed up, we don't see the Jhonka so much anymore. He lives in that little cave over in west Peasantry."
-(to Baby Lady) - "That nasty thing killed my husband and took my riches!!" / "I thought Trogdor killed your husband," you interject. / "Oh right. Yeah. That's what I said. Trogband killed my husbdor."
-(to Jhonka) - "The Kerrek is dead!" he cries and hops around some more. You wonder how someone this primitive could have made that much dough.
-Kerrek:
-(to knight) - "I call him Big Stinky. He's slow and stupid, but he'll pound you into milks meat without a second thought."
-Naked Ned:
-(to knight) - "That weirdo used to live over in west Peasantry but now I guess he just prances around the forest in his birthday suit."
-(to baby lady) - "Don't talk about that pervert in front of the baby here."
-(to Mendelev and Dongolev) - "That guy creeps us out. In fact, shut up about him."
-(to Jhonka) - "Filthy naked peasant! Stay away from my cave-hole!" Who's he calling naked? HE'S the one wearing the string bikini.
-(to innkeeper) - "He used to be such a nice, clothed young man. Wonder what he's done with all his old clothes?"
-robe:
-(to knight) - "Peasants wear those brown robes. You know, with the rope around the waist. Get yourself one of those."
-(to baby lady) - "You can't have mine, pervert! I'm not a nudist peasant like that weirdo over in west Peasantry!"
-(to Mendelev and Dongolev) - "We wouldn't know. We only wear archer clothes. You just can't arch real well in a robe, y'know?"
-(to Jhonka) - see naked ned
-(to innkeeper) - "I wear my robe hood-down so it's easier to trim my ear-hairs. If you need a robe, maybe try someone that's not using theirs."
-smell:
-(to knight) - "I never met a peasant that didn't stink. If you wanna smell bad, get the Kerrek involved. That thing reeks!"
-(to baby lady) - "What smells is junior here's drawers! I gotta quit feeding him so much horse!" / "And don't start asking me for his diapers, sicko!"
-(to Mendelev and Dongolev) - "That giant pig running around sure smells bad. Maybe talk to him."
-(to Jhonka) - "Kerrek smell! Now Kerrek dead!" screeches the Jhonka. So you can infer from this that all smells are dead? You always sucked at the analytical questions.
-(to innkeeper) - "Well, if you don't stink, maybe find something that does and wear it. Like a dead carcass or summat."
-trogdor:
-(to knight) - "If I had a gold coin for every whining peasant's cottage that freaking dragon burninated, I'd be rich as a jhonka."
-(to baby lady) - "I hope you kill that stupid dragon. My 'Wives of Squished Peasants' support group would bake you a Poor Gary pie if you did."
-(to Mendelev and Dongolev) - "Oh man, there was this one time when I came THIS close to having Trogdor ARROWED!" says Dongolev. / "Hey, shut up! That was me!" interrupts Mendelev,
-"YOU almost arrowed that blue baby!" says Dongolev. / "Did not!" / "Did so!" / "Did not!" / (You see where this is going.)
-(to Jhonka) - "All hail Burninator! Trogdor Number One! Beat Peasant Tech!" says the grimy Jhonka.
-(to innkeeper) - "Are you talking about that young green boy that lives up the street? He's always tearing my roof off and eating my customers."
-anything else:
-(to knight) - "I don't know anything about that, short pants."
-(to baby lady) - "I dunno what you're talking about."
-(to Mendelev and Dongolev) - "Either we don't know anything about that, or you're real boring."
-(to Jhonka) - "Jhonka don't know nothing bout that!"
-(to innkeeper) - "I don't know nothing about no whatever you just said."
-(anywhere else) - "Ask about what?"
-"attack _____": "sign" (at the Mountain Pass) - "I was being facetious, Mr. Smarty-short-pants. No sign attacking for you."
-"trogdor (while Trogdor's asleep, in his lair) - "Like how?"
-"boo" (anywhere) - "Scared me."
-"break/kick/punch door" (at Outside mysterious cottage) - "Violence is not the answer."
-"break sign" (at Mountain Pass) - See "attack sign"
-"break stump" (at Poor Gary's glen) - "Are you THAT bored? Do some questing already!"
-"buy kerrek a cold one" (in the Kerrek's domain while he's still alive) - "The kerrek is a teetotaller and is offended by your offer. You've really cheesed him off now." Warning: This speeds the Kerrek up, so be careful. This command was first seen in the email for kids.
-"cheat" (or any phrase involving "cheat"; anywhere) - "Meh."
-"climb _____"
-"cliff"
-(anywhere near the bottom of the cliff) - "There aren't enough footholds and you don't have any carabeaners on you."
-(at the top of the cliff) - "They don't show how the sports-drink people get down from the cliff. You've no idea how to start."
-(in Trogdor's outer sanctum) - "Nope. It's too sheer."
-"fence"/"jump fence"
-(at Poor Gary's glen, before scaring him) - "No, you have business to attend to here in Peasantry."
-(at Poor Gary's glen, after scaring him) - "More like you should walk through that gaping hole in it. Just an idea."
-(at the hidden glen) - "Not going to dignify that with a response."
-"in bucket" (at the well) - "Your butt is too big."
-"in well" (at the well) - "No go. Your insurance doesn't cover that."
-"tree"
-(anywhere but at the wavy tree or hidden glen) - "But then your hands would get all sappy."
-(at the hidden glen) - "Naw, you'd probably figure out some way to kill yourself doing that."
-(at the wavy tree) - "You don't climb wavy trees."
-(after getting a room in the inn) - "Naw. That's dumb. Do better."
-"close _____"
-"door"
-(at Naked Ned's cottage) - "Already done. That was easy!"
-(at Naked Ned's cottage, after the baby opens it) - "You can't. That baby really wrenched it open good."
-"drawer"
-(without stealing the robe) - "Right, right. Wouldn't want to leave the robes out where any old guy trying to beat an adventure game could take them."
-(when it's closed) - "A riddle: What can be closed that is already closed? (hint: not this drawer)"
-"cut off arms, legs, and head" (at Naked Ned's cottage) - "Very funny. You have trouble cutting out coupons in the weekly 'Peasant Penny-Pincher' circular. I'd like to see you try."
-"dan" (or any phrase involving Dan; anywhere): "Dan's still okay. Got a place on Dekalb with Rick and his wife. Slimmed up a bit and looking towards the future."
-"dance" (anywhere) - "You'd rather just stand here and soak up the scene."
-"die" (anywhere) - "That wasn't very smart. You dead." (Warning: This kills you.)
-"drink" (or any object after "drink"; anywhere) - "For simplicity's sake you are immune to hunger and thirst in this game. So you got that going for you./Which is nice."
-"drop baby"
-(once you have baby) - "Use the baby where? You haven't anywhere inconsiderate to stuff 'm." or "Quit tryin to ditch the baby!"
-(before you have baby) - "You don't even have two babies to rub together."
-(at the well) - "Like where?"
-"enter hay"
-(by the hay bale, when you're not muddy) - "Not right now, man. You're feeling fairly clean given you just bathed 3 fortnights ago."
-(near the hay bale, when you're muddy but not right next to it) - "Who do you think you are, MJ? Try from a little closer."
-"feed horse" (at Poor Gary's glen before scaring him) - "There's a good chance that horse has NEVER eaten. I doubt he'll start now."
-"get a room" (when on fire) - "\oard of Peasant Health says I can't serve any folk that's on fire. Nothing personal. Well, I mean, I don't like you much anyway."
+      {
+        "model": "commands_api.commands",
+        "pk": 6,
+        "fields": {
+            "command": "ask Mendelev about fire",
+            "action": "dialog",
+            "message": "Trogdor just burned down some idiot peasant's cottage. You should ask him,"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 7,
+        "fields": {
+            "command": "ask Dongolev about fire",
+            "action": "dialog",
+            "message": "Yeah, this jerk goes on vacation to some prancey lake and...Oh. Nevermind,"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 8,
+        "fields": {
+            "command": "ask Jhonka about fire",
+            "action": "dialog",
+            "message": "Burninator make fire! Barbecue all peasants!"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 9,
+        "fields": {
+            "command": "ask innkeeper about fire",
+            "action": "dialog",
+            "message": "I've always preferred being on fire at night. Looks prettier and keeps the butterflies away."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 10,
+        "fields": {
+            "command": "ask knight about Jhonka",
+            "action": "dialog",
+            "message": "Since the Kerrek showed up, we don't see the Jhonka so much anymore. He lives in that little cave over in west Peasantry."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 11,
+        "fields": {
+            "command": "ask baby lady about Jhonka",
+            "action": "dialog",
+            "message": "That nasty thing killed my husband and took my riches!! I thought Trogdor killed your husband, you interject. Oh right. Yeah. That's what I said. Trogband killed my husbdor."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 12,
+        "fields": {
+            "command": "ask Jhonka about Jhonka",
+            "action": "dialog",
+            "message": "The Kerrek is dead! He cries and hops around some more. You wonder how someone this primitive could have made that much dough."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 13,
+        "fields": {
+            "command": "ask knight about Kerrek",
+            "action": "dialog",
+            "message": "I call him Big Stinky. He's slow and stupid, but he'll pound you into milks meat without a second thought."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 14,
+        "fields": {
+            "command": "ask knight about Naked Ned",
+            "action": "dialog",
+            "message": "That weirdo used to live over in west Peasantry but now I guess he just prances around the forest in his birthday suit."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 15,
+        "fields": {
+            "command": "ask knight about Naked Ned",
+            "action": "dialog",
+            "message": "That weirdo used to live over in west Peasantry but now I guess he just prances around the forest in his birthday suit."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 16,
+        "fields": {
+            "command": "ask baby lady about Naked Ned",
+            "action": "dialog",
+            "message": "Don't talk about that pervert in front of the baby here."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 16,
+        "fields": {
+            "command": "ask Mendelev and Dongolev about Naked Ned",
+            "action": "dialog",
+            "message": "That guy creeps us out. In fact, shut up about him."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 17,
+        "fields": {
+            "command": "ask Jhonka about Naked Ned",
+            "action": "dialog",
+            "message": "Filthy naked peasant! Stay away from my cave-hole!"
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 18,
+        "fields": {
+            "command": "ask innkeeper about Naked Ned",
+            "action": "dialog",
+            "message": "He used to be such a nice, clothed young man. Wonder what he's done with all his old clothes?"
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 19,
+        "fields": {
+            "command": "ask the knight about robe",
+            "action": "dialog",
+            "message": "Peasants wear those brown robes. You know, with the rope around the waist. Get yourself one of those."
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 20,
+        "fields": {
+            "command": "ask baby lady about robe",
+            "action": "dialog",
+            "message": "You can't have mine, pervert! I'm not a nudist peasant like that weirdo over in west Peasantry!"
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 21,
+        "fields": {
+            "command": "ask Mendelev and Dongolev about robe",
+            "action": "dialog",
+            "message": "We wouldn't know. We only wear archer clothes. You just can't arch real well in a robe, y'know?"
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 22,
+        "fields": {
+            "command": "ask Jhonka about robe",
+            "action": "dialog",
+            "message": "Filthy naked peasant! Stay away from my cave-hole!"
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 23,
+        "fields": {
+            "command": "ask innkeeper about robe",
+            "action": "dialog",
+            "message": "I wear my robe hood-down so it's easier to trim my ear-hairs. If you need a robe, maybe try someone that's not using theirs."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 24,
+        "fields": {
+            "command": "ask knight about smell",
+            "action": "dialog",
+            "message": "I never met a peasant that didn't stink. If you wanna smell bad, get the Kerrek involved. That thing reeks!"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 25,
+        "fields": {
+            "command": "ask baby lady about smell",
+            "action": "dialog",
+            "message": "What smells is junior here's drawers! I gotta quit feeding him so much horse! And don't start asking me for his diapers, sicko!"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 26,
+        "fields": {
+            "command": "ask Mendelev and Dongolev about smell",
+            "action": "dialog",
+            "message": "That giant pig running around sure smells bad. Maybe talk to him."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 27,
+        "fields": {
+            "command": "ask Jhonka about smell",
+            "action": "dialog",
+            "message": "Kerrek smell! Now Kerrek dead!"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 28,
+        "fields": {
+            "command": "ask innkeeper about smell",
+            "action": "dialog",
+            "message": "Well, if you don't stink, maybe find something that does and wear it. Like a dead carcass or summat."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 29,
+        "fields": {
+            "command": "ask knight about Trogdor",
+            "action": "dialog",
+            "message": "If I had a gold coin for every whining peasant's cottage that freaking dragon burninated, I'd be rich as a jhonka."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 30,
+        "fields": {
+            "command": "ask baby lady about Trogdor",
+            "action": "dialog",
+            "message": "I hope you kill that stupid dragon. My 'Wives of Squished Peasants' support group would bake you a Poor Gary pie if you did."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 31,
+        "fields": {
+            "command": "ask Mendelev and Dongolev about Trogdor",
+            "action": "dialog",
+            "message": "Oh man, there was this one time when I came THIS close to having Trogdor ARROWED! says Dongolev. Hey, shut up! That was me! interrupts Mendelev. YOU almost arrowed that blue baby! says Dongolev. Did not! Did so! Did not!"
+
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 32,
+        "fields": {
+            "command": "ask Jhonka about Trogdor",
+            "action": "dialog",
+            "message": "All hail Burninator! Trogdor Number One! Beat Peasant Tech!"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 33,
+        "fields": {
+            "command": "ask innkeeper about Trogdor",
+            "action": "dialog",
+            "message": "Are you talking about that young green boy that lives up the street? He's always tearing my roof off and eating my customers."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 34,
+        "fields": {
+            "command": "attack sign",
+            "action": "dialog",
+            "message": "I was being facetious, Mr. Smarty-short-pants. No sign attacking for you."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 35,
+        "fields": {
+            "command": "attack trogdor",
+            "action": "dialog",
+            "message": "Like how?"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 36,
+        "fields": {
+            "command": "boo",
+            "action": "dialog",
+            "message": "Scared me."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 37,
+        "fields": {
+            "command": "break door",
+            "action": "dialog",
+            "message": "Violence is not the answer."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 38,
+        "fields": {
+            "command": "break stump",
+            "action": "dialog",
+            "message": "Are you THAT bored? Do some questing already!"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 39,
+        "fields": {
+            "command": "buy kerrek a cold one",
+            "action": "dialog",
+            "message":  "The kerrek is a teetotaller and is offended by your offer. You've really cheesed him off now."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 40,
+        "fields": {
+            "command": "cheat",
+            "action": "dialog",
+            "message":  "Meh."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 42,
+        "fields": {
+            "command": "climb cliff",
+            "action": "dialog",
+            "message":  "They don't show how the sports-drink people get down from the cliff. You've no idea how to start."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 43,
+        "fields": {
+            "command": "jump fence",
+            "action": "dialog",
+            "message": "More like you should walk through that gaping hole in it. Just an idea."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 44,
+        "fields": {
+            "command": "jump fence",
+            "action": "dialog",
+            "message": "More like you should walk through that gaping hole in it. Just an idea."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 45,
+        "fields": {
+            "command": "jump in bucket",
+            "action": "dialog",
+            "message":  "Your butt is too big."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 46,
+        "fields": {
+            "command": "jump in well",
+            "action": "dialog",
+            "message":  "No go. Your insurance doesn't cover that."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 47,
+        "fields": {
+            "command": "climb tree",
+            "action": "dialog",
+            "message":  "Naw, you'd probably figure out some way to kill yourself doing that."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 48,
+        "fields": {
+            "command": "close door",
+            "action": "dialog",
+            "message":  "Already done. That was easy!"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 49,
+        "fields": {
+            "command": "close door near baby lady",
+            "action": "dialog",
+            "message":  "You can't. That baby really wrenched it open good."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 50,
+        "fields": {
+            "command": "close drawer",
+            "action": "dialog",
+            "message":  "A riddle: What can be closed that is already closed? (hint: not this drawer)"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 51,
+        "fields": {
+            "command": "close drawer",
+            "action": "dialog",
+            "message":  "A riddle: What can be closed that is already closed? (hint: not this drawer)"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 52,
+        "fields": {
+            "command": "cut off arms, legs, and head",
+            "action": "dialog",
+            "message":  "Very funny. You have trouble cutting out coupons in the weekly 'Peasant Penny-Pincher' circular. I'd like to see you try."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 53,
+        "fields": {
+            "command": "ask about Dan",
+            "action": "dialog",
+            "message":  "Dan's still okay. Got a place on Dekalb with Rick and his wife. Slimmed up a bit and looking towards the future."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 54,
+        "fields": {
+            "command": "dance",
+            "action": "dialog",
+            "message":  "You'd rather just stand here and soak up the scene."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 55,
+        "fields": {
+            "command": "die",
+            "action": "dialog",
+            "message":  "That wasn't very smart. You dead."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 56,
+        "fields": {
+            "command": "drink",
+            "action": "dialog",
+            "message":  "For simplicity's sake you are immune to hunger and thirst in this game. So you got that going for you. Which is nice."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 57,
+        "fields": {
+            "command": "drop baby",
+            "action": "dialog",
+            "message":  "Use the baby where? You haven't anywhere inconsiderate to stuff him."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 58,
+        "fields": {
+            "command": "enter hay clean",
+            "action": "dialog",
+            "message":  "Who do you think you are, MJ? Try from a little closer."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 59,
+        "fields": {
+            "command": "enter hay dirty",
+            "action": "dialog",
+            "message":  "Not right now, man. You're feeling fairly clean given you just bathed 3 fortnights ago."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 60,
+        "fields": {
+            "command": "feed horse",
+            "action": "dialog",
+            "message":  "There's a good chance that horse has NEVER eaten. I doubt he'll start now."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 61,
+        "fields": {
+            "command": "feed horse",
+            "action": "dialog",
+            "message":  "There's a good chance that horse has NEVER eaten. I doubt he'll start now."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 62,
+        "fields": {
+            "command": "feed horse",
+            "action": "dialog",
+            "message":  "There's a good chance that horse has NEVER eaten. I doubt he'll start now."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 63,
+        "fields": {
+            "command": "get a room while on fire",
+            "action": "dialog",
+            "message":  "Board of Peasant Health says I can't serve any folk that's on fire. Nothing personal. Well, I mean, I don't like you much anyway."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 64,
+        "fields": {
+            "command": "take baby",
+            "action": "dialog",
+            "message":  "You want to be a part of this family? GO GET US THOSE RICHES!! she shrieks."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 64,
+        "fields": {
+            "command": "take baby",
+            "action": "dialog",
+            "message":  "You want to be a part of this family? GO GET US THOSE RICHES!! she shrieks."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 65,
+        "fields": {
+            "command": "take bell",
+            "action": "dialog",
+            "message":  "You can't. It looks like it's been somehow olded to the desk."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 66,
+        "fields": {
+            "command": "take belt",
+            "action": "dialog",
+            "message":  "You totally got the belt already, as evidenced by the rancid cloud of odor that follows you like a shadow."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 67,
+        "fields": {
+            "command": "take berries",
+            "action": "dialog",
+            "message":  "You've searched your fill of berry bushes for this game. If you want to search more press 'reload' on the browser"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 68,
+        "fields": {
+            "command": "get berries",
+            "action": "dialog",
+            "message":  "You already searched that bush. It was okay. Nothing to write home about... oh, wait... you don't have a home. My b."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 69,
+        "fields": {
+            "command": "steal berries",
+            "action": "dialog",
+            "message":  "NO MAN! JEEZ!"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 70,
+        "fields": {
+            "command": "take skull",
+            "action": "dialog",
+            "message":  "Eww. No. Grody. You're grody. No. Eww."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 71,
+        "fields": {
+            "command": "take broom",
+            "action": "dialog",
+            "message":  "No, no. The broom is in the foreground and you can't take things from the foreground. You don't see me all typing get browser window, do you?"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 72,
+        "fields": {
+            "command": "take bucket",
+            "action": "dialog",
+            "message": "You can't, it's tied to a rope and you're terrible with knots."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 72,
+        "fields": {
+            "command": "take candle",
+            "action": "dialog",
+            "message": "It seems like you should be able to do that, doesn't it? Sorry. No dice."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 73,
+        "fields": {
+            "command": "take chair",
+            "action": "dialog",
+            "message": "No. There's a big bag of something in it. Oh, that's the baby lady."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 74,
+        "fields": {
+            "command": "take club",
+            "action": "dialog",
+            "message":  "Now there's a surefire way to get yourself killed."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 75,
+        "fields": {
+            "command": "take drawer",
+            "action": "dialog",
+            "message": "You get a hernia from lifting it. -2 Movement points, -10 Constitution. Don't do that again."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 76,
+        "fields": {
+            "command": "take feed",
+            "action": "dialog",
+            "message": "You don't need anymore. It might give rise to old temptations."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 77,
+        "fields": {
+            "command": "take fire",
+            "action": "dialog",
+            "message": "You're just not flammable enough."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 78,
+        "fields": {
+            "command": "steal fire",
+            "action": "dialog",
+            "message": "You're already on fire! What? You want to be MORE on fire?"
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 79,
+        "fields": {
+            "command": "get fire",
+            "action": "dialog",
+            "message": "You don't need to get IT. Just let IT get YOU."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 80,
+        "fields": {
+            "command": "take flies",
+            "action": "dialog",
+            "message": "You nasty. Besides, they wouldn't survive a minute away from that horse's butt."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 81,
+        "fields": {
+            "command": "take gold",
+            "action": "dialog",
+            "message": "Um, that's chicken feed."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 82,
+        "fields": {
+            "command": "take hay",
+            "action": "dialog",
+            "message": "Who do you think you are? Some kind of Thy Dungeonman? You don't need any hay."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 83,
+        "fields": {
+            "command": "take Kerrek",
+            "action": "dialog",
+            "message": "Well, he does smell real bad. But he's a bit too big to fit in your pocket."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 84,
+        "fields": {
+            "command": "take lantern",
+            "action": "dialog",
+            "message": "Better not. There's an engraved plaque on it that says, Do Not Remove Under Penalty Of You Die."
+        }
+    },
+    {
+        "model": "commands_api.commands",
+        "pk": 85,
+        "fields": {
+            "command": "take mud",
+            "action": "dialog",
+            "message": "You can't get the mud so much. More like the mud'll get you."
+        }
+    },
+
+
+
 "get/take/steal _____"
-"(anything not listed and not relevant to the plot)" - "You probably WISH you could get that."
-"arrow"
-(at the archery range) - "They have 'RANGE' printed on them, so it would be kind of embarrassing to have to shoot around with them. Also, that guy over there is giving you the evil eye."
-(at the secret glen while Dongolev is there) - "Something tells me now's not a good time." {you get the arrow anyway and Dongolev shoots you
-} "It wasn't a good time. Hey, my mom's making peasant-kabobs for dinner TOO! Right. Anyway. You dead. Thanks for playing, and try not to die." (Warning: As you can see, this kills you.)
-(at the secret glen after getting the first arrow OR at the secret glen after getting the second arrow after killing the Kerrek) - "You're pretty much all set on the arrow front. They're kinda cool, though."
-(at the secret glen after killing the Kerrek) - "You grab yet another arrow from the tree hoping to get some bonus points."
-(at Kerrek's body after killing the Kerrek) - "Eww! No way. That thing's got some serious Kerrek-Brand kooties on it now."
-"baby" (inside the woman's cottage, while she has the baby) - "'You want to be a part of this family? GO GET US THOSE RICHES!!' she shrieks."
-"bell" (in the inn, after getting a room) - "You can't. It looks like it's been somehow olded to the desk."
-"belt" (after getting it) - "You totally got the belt already, as evidenced by the rancid cloud of odor that follows you like a shadow."
-"berries"
-(the same bush twice outside the woman's cottage) - "You already searched that bush. It was okay. Nothing to write home about... oh, wait... you don't have a home. My b."
-(after you've gotten the trinket, outside the woman's cottage) - "You've searched your fill of berry bushes for this game. If you want to search more press 'reload' on the browser"
-(at the west side of the lake) - "NO MAN! JEEZ!"
-"bone/skull" (at the top of the cliff) - "Eww. No. Grody. You're grody. No. Eww."
-"broom" (inside Naked Ned's cottage) - "No, no. The broom is in the foreground and you can't take things from the foreground. You don't see me all typing 'get browser window', do you?"
-"bucket" (at the well) - "You can't, it's tied to a rope and you're terrible with knots."
-"candle" (at night, in the inn) - "It seems like you should be able to do that, doesn't it? Sorry. No dice."
-"chair"
-(inside the woman's cottage, while she is there) - "No. There's a big bag of something in it. Oh, that's the baby lady."
-(inside the woman's cottage, while she is gone) - "No. Too big for pants."
-"club" (outside the Jhonka's cottage when he's out) - "Now there's a surefire way to get yourself killed."
-"drawer" (inside Naked Ned's cottage) - "You get a hernia from lifting it. -2 Movement points, -10 Constitution. Don't do that again."
-"feed" (inside the woman's cottage after stealing feed) - "You don't need anymore. It might give rise to old temptations."
-"fire"
-(at the burninated tree at night, before getting the horse grease) - "You're just not flammable enough."
-(at the burninated tree at night, after getting the horse grease) - "You don't need to get IT. Just let IT get YOU."
-(at the burninated tree at night, after getting on fire) - "You're already on fire! What? You want to be MORE on fire?"
-"flies" (at Poor Gary's glen, before scaring him) - "You nasty. Besides, they wouldn't survive a minute away from that horse's butt."
-"gold/money" (inside the woman's cottage) - "Um, that's chicken feed."
-"grease" (inside the inn, at night, when you already got the grease) - "You already have a nice greasy swab of it on the corner of your hood."
-"hay"
-(at the hay bale) - "Who do you think you are? Some kind of Thy Dungeonman? You don't need any hay."
-(inside the woman's cottage) - "There's a huge bale a couple of screens over from here. Why bother stealing?"
-"kerrek" (in the Kerrek's domain whether or not he's still alive) - "Well, he does smell real bad. But he's a bit too big to fit in your pocket."
+
 "lantern" (at the signal lantern) - "Better not. There's an engraved plaque on it that says, "Do Not Remove Under Penalty Of 'You Die'."
 "mud"
 (when it's wet, before you fall in) - "You can't get the mud so much. More like the mud'll get you."
@@ -497,3 +1131,23 @@ anything else:
 "why" (anywhere) - "I wish I knew."
 "Yes" (to the Jhonka when he asks you about his riches) - "'I KILL YOU!!' screams the Jhonka. {The Jhonka clubs you to death} Club or turkey leg, the jhonka sure just beat you senseless with whatever he was holding. You dead. Thanks for playing!" (Warning: Obviously, you will die.)
 ]
+
+Defaults -------------
+
+"Ask about _____":
+anything else:
+(to knight) - "I don't know anything about that, short pants."
+(to baby lady) - "I dunno what you're talking about."
+(to Mendelev and Dongolev) - "Either we don't know anything about that, or you're real boring."
+(to Jhonka) - "Jhonka don't know nothing bout that!"
+(to innkeeper) - "I don't know nothing about no whatever you just said."
+(anywhere else) - "Ask about what?"
+
+"get/take/steal _____"
+"arrow"
+(at the archery range) - "They have 'RANGE' printed on them, so it would be kind of embarrassing to have to shoot around with them. Also, that guy over there is giving you the evil eye."
+(at the secret glen while Dongolev is there) - "Something tells me now's not a good time." {you get the arrow anyway and Dongolev shoots you
+} "It wasn't a good time. Hey, my mom's making peasant-kabobs for dinner TOO! Right. Anyway. You dead. Thanks for playing, and try not to die." (Warning: As you can see, this kills you.)
+(at the secret glen after getting the first arrow OR at the secret glen after getting the second arrow after killing the Kerrek) - "You're pretty much all set on the arrow front. They're kinda cool, though."
+(at the secret glen after killing the Kerrek) - "You grab yet another arrow from the tree hoping to get some bonus points."
+(at Kerrek's body after killing the Kerrek) - "Eww! No way. That thing's got some serious Kerrek-Brand kooties on it now."
