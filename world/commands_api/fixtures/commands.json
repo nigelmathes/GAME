@@ -25,7 +25,8 @@
     "fields": {
       "command": "Cast Fire Ball",
       "action": "Cast Fireball",
-      "message": "You conjure a fireball and hurl it at your enemy."
+      "message": "You conjure a fireball and hurl it at your enemy.",
+      "context": "Combat"
     }
   },
   {

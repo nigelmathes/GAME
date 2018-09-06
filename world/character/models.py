@@ -3,10 +3,9 @@ from django.contrib.gis.db import models as geo_models
 
 
 class Character(models.Model):
-    name = models.CharField(max_length=300)
-    account = models.CharField(max_length=300)
-    character_class = models.CharField(max_length=50)
-    level = models.FloatField()
+    owner = models.ForeignKey('auth.User', related_name='characters', on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    character_class = models.CharField(max_length=20)
     location = geo_models.PointField(
         null=True, blank=False, srid=4326, verbose_name="Location")
     in_combat = models.BooleanField()
@@ -16,7 +15,7 @@ class Character(models.Model):
 
 class Abilities(models.Model):
     ability_name = models.CharField(max_length=20)
-    character_class = models.CharField(max_length=12)
+    character_class = models.CharField(max_length=20)
     ability_type = models.CharField(max_length=10)  # Attack/Area/Dodge/Block/Disrupt
     added_effect = models.CharField(max_length=20)
     damage = models.IntegerField()

@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 import spacy
 import en_core_web_md
 
-nlp = en_core_web_md.load()
+#nlp = en_core_web_md.load()
 
 
 class CommandsListCreate(generics.ListCreateAPIView):
@@ -20,27 +20,34 @@ class MatchCommands(APIView):
 
     """
 
-    def get(self):
+    def get(self, request):
 
-        input_command = self.request.query_params.get('input_data', None)
+        input_command = request.query_params.get('input_data', None)
+        context = request.query_params.get('context')
 
-        similarity_list = []
-        message_token = nlp(input_command)
+        # Catch null context in request
+        if not context:
+            context = ''
 
-        commands = Commands.objects.all().values_list('command', flat=True)
+        #message_token = nlp(input_command)
+
+        commands = Commands.objects.filter(context=context)
+        commands_strings = commands.values_list('command', flat=True)
 
         command_list = []
-        for command in commands:
+        similarity_list = []
+        for command in commands_strings:
 
             command_list.append(command)
             command_token = nlp(command)
             similarity = message_token.similarity(command_token)
             similarity_list.append(similarity)
 
-        matching_index = similarity_list.index(max(similarity_list))
-        print(command_list, similarity_list)
-        matching_command = Commands.objects.get(
-            command=command_list[matching_index])
+        if similarity_list:
+            matching_index = similarity_list.index(max(similarity_list))
+            matching_command = commands[matching_index]
+        else:
+            matching_command = Commands.objects.get(pk=1)
 
         serializer = CommandSerializer(matching_command)
         return Response(serializer.data)

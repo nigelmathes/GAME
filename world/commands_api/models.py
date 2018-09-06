@@ -7,7 +7,7 @@ class Commands(models.Model):
     Action is the action for the code to take (function to call)
     Message is what is returned to the user, which will be transformed from text to speedh
     """
-    command = models.CharField(max_length=100)
+    command = models.CharField(max_length=100, db_index=True)
     action = models.CharField(max_length=50)
     message = models.TextField()
-    context = models.CharField(max_length=100)
+    context = models.CharField(max_length=100, db_index=True, blank=True)
