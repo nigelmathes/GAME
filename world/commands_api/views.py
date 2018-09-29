@@ -29,28 +29,41 @@ class MatchCommands(APIView):
         if not context:
             context = ''
 
-        #message_token = nlp(input_command)
+        check_perfect_match = Commands.objects.filter(command=input_command.lower(), context=context)
 
-        commands = Commands.objects.filter(context=context)
-        commands_strings = commands.values_list('command', flat=True)
+        # If there is a perfect matching string, return the command
+        if check_perfect_match:
+            print("\nPerfect Match\n")
+            matching_command = check_perfect_match[0]
+            serializer = CommandSerializer(matching_command)
+            return Response(serializer.data)
 
-        command_list = []
-        similarity_list = []
-        for command in commands_strings:
-
-            command_list.append(command)
-            command_token = nlp(command)
-            similarity = message_token.similarity(command_token)
-            similarity_list.append(similarity)
-
-        if similarity_list:
-            matching_index = similarity_list.index(max(similarity_list))
-            matching_command = commands[matching_index]
+        # If there is no perfect match, then use NLP to guess the right answer
         else:
-            matching_command = Commands.objects.get(pk=1)
+            print("\nUsing NLP\n")
 
-        serializer = CommandSerializer(matching_command)
-        return Response(serializer.data)
+            message_token = nlp(input_command)
+
+            commands = Commands.objects.filter(context=context)
+            commands_strings = commands.values_list('command', flat=True)
+
+            command_list = []
+            similarity_list = []
+            for command in commands_strings:
+
+                command_list.append(command)
+                command_token = nlp(command)
+                similarity = message_token.similarity(command_token)
+                similarity_list.append(similarity)
+
+            if similarity_list:
+                matching_index = similarity_list.index(max(similarity_list))
+                matching_command = commands[matching_index]
+            else:
+                matching_command = Commands.objects.get(pk=1)
+
+            serializer = CommandSerializer(matching_command)
+            return Response(serializer.data)
 
     def post(self):
         print(self.request.POST.get('test_val'))

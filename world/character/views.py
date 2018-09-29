@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from rest_framework import permissions
 from rest_framework import viewsets
 
-from character.models import Character, Abilities
-from character.serializers import CharacterSerializer, AbilitySerializer, UserSerializer
+from character.models import Character, Abilities, AbilityEffects, PlayerClasses
+from character.serializers import CharacterSerializer, AbilitySerializer, UserSerializer,\
+    AbilityEffectsSerializer, PlayerClassesSerializer
 from character.permissions import IsOwnerOrReadOnly
 
 
@@ -24,9 +25,19 @@ class CharacterViewSet(viewsets.ModelViewSet):
         serializer.save(owner=self.request.user)
 
 
-class AbilityList(generics.ListAPIView):
+class AbilityViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Abilities.objects.all()
     serializer_class = AbilitySerializer
+
+
+class AbilityEffectViewSet(viewsets.ModelViewSet):
+    queryset = AbilityEffects.objects.all()
+    serializer_class = AbilityEffectsSerializer
+
+
+class PlayerClassesViewSet(viewsets.ModelViewSet):
+    queryset = PlayerClasses.objects.all()
+    serializer_class = PlayerClassesSerializer
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):

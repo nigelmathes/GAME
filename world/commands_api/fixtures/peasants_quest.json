@@ -51,7 +51,7 @@
     "model": "commands_api.commands",
     "pk": 6,
     "fields": {
-      "command": "ask Mendelev about fire",
+      "command": "ask mendelev about fire",
       "action": "dialog",
       "message": "Trogdor just burned down some idiot peasant's cottage. You should ask him,"
     }
@@ -60,7 +60,7 @@
     "model": "commands_api.commands",
     "pk": 7,
     "fields": {
-      "command": "ask Dongolev about fire",
+      "command": "ask dongolev about fire",
       "action": "dialog",
       "message": "Yeah, this jerk goes on vacation to some prancey lake and...Oh. Nevermind,"
     }
@@ -69,7 +69,7 @@
     "model": "commands_api.commands",
     "pk": 8,
     "fields": {
-      "command": "ask Jhonka about fire",
+      "command": "ask jhonka about fire",
       "action": "dialog",
       "message": "Burninator make fire! Barbecue all peasants!"
     }
@@ -87,7 +87,7 @@
     "model": "commands_api.commands",
     "pk": 10,
     "fields": {
-      "command": "ask knight about Jhonka",
+      "command": "ask knight about jhonka",
       "action": "dialog",
       "message": "Since the Kerrek showed up, we don't see the Jhonka so much anymore. He lives in that little cave over in west Peasantry."
     }
@@ -96,7 +96,7 @@
     "model": "commands_api.commands",
     "pk": 11,
     "fields": {
-      "command": "ask baby lady about Jhonka",
+      "command": "ask baby lady about jhonka",
       "action": "dialog",
       "message": "That nasty thing killed my husband and took my riches!! I thought Trogdor killed your husband, you interject. Oh right. Yeah. That's what I said. Trogband killed my husbdor."
     }
@@ -105,7 +105,7 @@
     "model": "commands_api.commands",
     "pk": 12,
     "fields": {
-      "command": "ask Jhonka about Jhonka",
+      "command": "ask jhonka about jhonka",
       "action": "dialog",
       "message": "The Kerrek is dead! He cries and hops around some more. You wonder how someone this primitive could have made that much dough."
     }
@@ -114,7 +114,7 @@
     "model": "commands_api.commands",
     "pk": 13,
     "fields": {
-      "command": "ask knight about Kerrek",
+      "command": "ask knight about kerrek",
       "action": "dialog",
       "message": "I call him Big Stinky. He's slow and stupid, but he'll pound you into milks meat without a second thought."
     }
@@ -150,7 +150,7 @@
     "model": "commands_api.commands",
     "pk": 16,
     "fields": {
-      "command": "ask Mendelev and Dongolev about Naked Ned",
+      "command": "ask mendelev and dongolev about Naked Ned",
       "action": "dialog",
       "message": "That guy creeps us out. In fact, shut up about him."
     }
@@ -159,7 +159,7 @@
     "model": "commands_api.commands",
     "pk": 17,
     "fields": {
-      "command": "ask Jhonka about Naked Ned",
+      "command": "ask jhonka about Naked Ned",
       "action": "dialog",
       "message": "Filthy naked peasant! Stay away from my cave-hole!"
     }
@@ -195,7 +195,7 @@
     "model": "commands_api.commands",
     "pk": 21,
     "fields": {
-      "command": "ask Mendelev and Dongolev about robe",
+      "command": "ask mendelev and dongolev about robe",
       "action": "dialog",
       "message": "We wouldn't know. We only wear archer clothes. You just can't arch real well in a robe, y'know?"
     }
@@ -204,7 +204,7 @@
     "model": "commands_api.commands",
     "pk": 22,
     "fields": {
-      "command": "ask Jhonka about robe",
+      "command": "ask jhonka about robe",
       "action": "dialog",
       "message": "Filthy naked peasant! Stay away from my cave-hole!"
     }
@@ -240,7 +240,7 @@
     "model": "commands_api.commands",
     "pk": 26,
     "fields": {
-      "command": "ask Mendelev and Dongolev about smell",
+      "command": "ask mendelev and dongolev about smell",
       "action": "dialog",
       "message": "That giant pig running around sure smells bad. Maybe talk to him."
     }
@@ -249,7 +249,7 @@
     "model": "commands_api.commands",
     "pk": 27,
     "fields": {
-      "command": "ask Jhonka about smell",
+      "command": "ask jhonka about smell",
       "action": "dialog",
       "message": "Kerrek smell! Now Kerrek dead!"
     }
@@ -285,7 +285,7 @@
     "model": "commands_api.commands",
     "pk": 31,
     "fields": {
-      "command": "ask Mendelev and Dongolev about Trogdor",
+      "command": "ask mendelev and dongolev about Trogdor",
       "action": "dialog",
       "message": "Oh man, there was this one time when I came THIS close to having Trogdor ARROWED! says Dongolev. Hey, shut up! That was me! interrupts Mendelev. YOU almost arrowed that blue baby! says Dongolev. Did not! Did so! Did not!"
     }
@@ -294,7 +294,7 @@
     "model": "commands_api.commands",
     "pk": 32,
     "fields": {
-      "command": "ask Jhonka about Trogdor",
+      "command": "ask jhonka about Trogdor",
       "action": "dialog",
       "message": "All hail Burninator! Trogdor Number One! Beat Peasant Tech!"
     }
@@ -762,7 +762,7 @@
     "model": "commands_api.commands",
     "pk": 83,
     "fields": {
-      "command": "take Kerrek",
+      "command": "take kerrek",
       "action": "dialog",
       "message": "Well, he does smell real bad. But he's a bit too big to fit in your pocket."
     }
@@ -933,7 +933,7 @@
     "model": "commands_api.commands",
     "pk": 101,
     "fields": {
-      "command": "give riches to Jhonka",
+      "command": "give riches to jhonka",
       "action": "dialog",
       "message": "The Jhonka will see you! And rip out your jugular with his teeth or something equally horrible."
     }
@@ -1005,7 +1005,7 @@
     "model": "commands_api.commands",
     "pk": 108,
     "fields": {
-      "command": "kill Jhonka",
+      "command": "kill jhonka",
       "action": "dialog",
       "message": "No way! Jhonka's are born scrappers. He may be little, but he'll crawl ya."
     }
@@ -1014,7 +1014,7 @@
     "model": "commands_api.commands",
     "pk": 109,
     "fields": {
-      "command": "kill Kerrek",
+      "command": "kill kerrek",
       "action": "dialog",
       "message": "No way! Jhonka's are born scrappers. He may be little, but he'll crawl ya."
     }
@@ -1023,9 +1023,10 @@
     "model": "commands_api.commands",
     "pk": 110,
     "fields": {
-      "command": "kill Kerrek",
+      "command": "kill kerrek",
       "action": "dialog",
-      "message": "With what?! You got no weapons except your butter-knife wit."
+      "message": "With what?! You got no weapons except your butter-knife wit.",
+      "context": "world"
     }
   },
   {
@@ -1050,7 +1051,7 @@
     "model": "commands_api.commands",
     "pk": 113,
     "fields": {
-      "command": "knock on Jhonka's cave",
+      "command": "knock on jhonka's cave",
       "action": "dialog",
       "message": "A gravelly voice inside yells, JUST US CHICKENS or NO FOR RENT or I GIVE LAST YEAR! or GAVE AT OFFICE or GO WAY!"
     }
@@ -1428,7 +1429,7 @@
     "model": "commands_api.commands",
     "pk": 152,
     "fields": {
-      "command": "look at Jhonka",
+      "command": "look at jhonka",
       "action": "dialog",
       "message": "The Jhonka is gray and grody. He's got a cromagnon forehead and jaw with a pair of wicked incisors. He sports an old loin-cheese cloth and carries either a big club or one of those roasted turkey legs you got at the Ren Fest."
     }
@@ -1437,7 +1438,7 @@
     "model": "commands_api.commands",
     "pk": 153,
     "fields": {
-      "command": "look at Kerrek",
+      "command": "look at kerrek",
       "action": "dialog",
       "message": "It's the Kerrek, you moron! Get outta here!"
     }
@@ -1446,7 +1447,7 @@
     "model": "commands_api.commands",
     "pk": 154,
     "fields": {
-      "command": "look at dead Kerrek",
+      "command": "look at dead kerrek",
       "action": "dialog",
       "message": "He dead. You didn't think he could have smelled any worse? Well, guess what: He smells worse."
     }
@@ -1770,7 +1771,7 @@
     "model": "commands_api.commands",
     "pk": 188,
     "fields": {
-      "command": "make friends with Kerrek",
+      "command": "make friends with kerrek",
       "action": "dialog",
       "message": "Look, it didn't work for Strongbad and it's not gonna work for you either."
     }
@@ -2049,7 +2050,7 @@
     "model": "commands_api.commands",
     "pk": 218,
     "fields": {
-      "command": "talk to Jhonka",
+      "command": "talk to jhonka",
       "action": "dialog",
       "message": "Not now! You'll blow your cover!"
     }
@@ -2058,7 +2059,7 @@
     "model": "commands_api.commands",
     "pk": 219,
     "fields": {
-      "command": "talk to Kerrek",
+      "command": "talk to kerrek",
       "action": "dialog",
       "message": "Me llamo Julio, you begin... It seems only to further anger the already tempramental Kerrek. That stupid Learn Kerrek in 3 Weeks cassette did nothing for you!"
     }
