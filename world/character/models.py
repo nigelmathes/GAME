@@ -14,6 +14,7 @@ class Character(models.Model):
     in_combat = models.BooleanField()
     hit_points = models.FloatField()
     appearance = models.TextField()
+    inventory = models.TextField()
 
 
 class PlayerClasses(models.Model):
@@ -35,6 +36,7 @@ class AbilityEffects(models.Model):
     """
     Table to hold the list of ability effects
     """
+    # Ability ID points back to the Abilities table
     ability_id = models.ForeignKey(Abilities, related_name='ability_effects', on_delete=models.DO_NOTHING)
     effect = models.CharField(max_length=20)
     damage = models.IntegerField()
@@ -45,5 +47,6 @@ class AbilityMessages(models.Model):
     """
     Table to hold ability descriptions/messages to select from
     """
+    # Ability ID points back to the abilities table
     ability_id = models.ForeignKey(Abilities, related_name='ability_messages', on_delete=models.DO_NOTHING)
     message = models.TextField()

@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 import spacy
 import en_core_web_md
 
-#nlp = en_core_web_md.load()
+nlp = en_core_web_md.load()
 
 
 class CommandsListCreate(generics.ListCreateAPIView):
@@ -20,7 +20,8 @@ class MatchCommands(APIView):
 
     """
 
-    def get(self, request):
+    @staticmethod
+    def get(request):
 
         input_command = request.query_params.get('input_data', None)
         context = request.query_params.get('context')
@@ -33,7 +34,10 @@ class MatchCommands(APIView):
 
         # If there is a perfect matching string, return the command
         if check_perfect_match:
-            print("\nPerfect Match\n")
+
+            # This is the action to take
+            action = check_perfect_match.values_list('action', flat=True)[0]
+
             matching_command = check_perfect_match[0]
             serializer = CommandSerializer(matching_command)
             return Response(serializer.data)
@@ -61,6 +65,9 @@ class MatchCommands(APIView):
                 matching_command = commands[matching_index]
             else:
                 matching_command = Commands.objects.get(pk=1)
+
+            # This is the action to take
+            action = matching_command.action
 
             serializer = CommandSerializer(matching_command)
             return Response(serializer.data)

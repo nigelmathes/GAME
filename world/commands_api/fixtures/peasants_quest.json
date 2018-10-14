@@ -474,7 +474,7 @@
     "model": "commands_api.commands",
     "pk": 53,
     "fields": {
-      "command": "ask about Dan",
+      "command": "ask about dan",
       "action": "dialog",
       "message": "Dan's still okay. Got a place on Dekalb with Rick and his wife. Slimmed up a bit and looking towards the future."
     }
