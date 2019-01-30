@@ -1,0 +1,2374 @@
+[
+  {
+    "model": "commands_api.commands",
+    "pk": 1,
+    "fields": {
+      "command": "ask baby lady about baby",
+      "action": "dialog",
+      "message": "This little guy's all I got left. If only someone would steal back all our riches from that filthy Jhonka.",
+      "context": ""
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 2,
+    "fields": {
+      "command": "ask knight about fire",
+      "action": "dialog",
+      "message": "Well, whenever I see peasants, they tend to be on fire. So get yourself on fire. I hear horse grease gives a nice, controlled burn.",
+      "context": ""
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 3,
+    "fields": {
+      "command": "ask baby lady about fire",
+      "action": "dialog",
+      "message": "You need fire? A couple of trees over by the waterfall used to be on fire. But now there's like a signal lantern over there or something.",
+      "context": "world"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 4,
+    "fields": {
+      "command": "ask baby lady about signal lantern",
+      "action": "dialog",
+      "message": "I dunno man! Whattaya want from me?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 5,
+    "fields": {
+      "command": "ask baby lady about signal lantern",
+      "action": "dialog",
+      "message": "I dunno man! Whattaya want from me?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 6,
+    "fields": {
+      "command": "ask mendelev about fire",
+      "action": "dialog",
+      "message": "Trogdor just burned down some idiot peasant's cottage. You should ask him,"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 7,
+    "fields": {
+      "command": "ask dongolev about fire",
+      "action": "dialog",
+      "message": "Yeah, this jerk goes on vacation to some prancey lake and...Oh. Nevermind,"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 8,
+    "fields": {
+      "command": "ask jhonka about fire",
+      "action": "dialog",
+      "message": "Burninator make fire! Barbecue all peasants!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 9,
+    "fields": {
+      "command": "ask innkeeper about fire",
+      "action": "dialog",
+      "message": "I've always preferred being on fire at night. Looks prettier and keeps the butterflies away."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 10,
+    "fields": {
+      "command": "ask knight about jhonka",
+      "action": "dialog",
+      "message": "Since the Kerrek showed up, we don't see the Jhonka so much anymore. He lives in that little cave over in west Peasantry."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 11,
+    "fields": {
+      "command": "ask baby lady about jhonka",
+      "action": "dialog",
+      "message": "That nasty thing killed my husband and took my riches!! I thought Trogdor killed your husband, you interject. Oh right. Yeah. That's what I said. Trogband killed my husbdor."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 12,
+    "fields": {
+      "command": "ask jhonka about jhonka",
+      "action": "dialog",
+      "message": "The Kerrek is dead! He cries and hops around some more. You wonder how someone this primitive could have made that much dough."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 13,
+    "fields": {
+      "command": "ask knight about kerrek",
+      "action": "dialog",
+      "message": "I call him Big Stinky. He's slow and stupid, but he'll pound you into milks meat without a second thought."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 14,
+    "fields": {
+      "command": "ask knight about Naked Ned",
+      "action": "dialog",
+      "message": "That weirdo used to live over in west Peasantry but now I guess he just prances around the forest in his birthday suit."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 15,
+    "fields": {
+      "command": "ask knight about Naked Ned",
+      "action": "dialog",
+      "message": "That weirdo used to live over in west Peasantry but now I guess he just prances around the forest in his birthday suit."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 16,
+    "fields": {
+      "command": "ask baby lady about Naked Ned",
+      "action": "dialog",
+      "message": "Don't talk about that pervert in front of the baby here."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 16,
+    "fields": {
+      "command": "ask mendelev and dongolev about Naked Ned",
+      "action": "dialog",
+      "message": "That guy creeps us out. In fact, shut up about him."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 17,
+    "fields": {
+      "command": "ask jhonka about Naked Ned",
+      "action": "dialog",
+      "message": "Filthy naked peasant! Stay away from my cave-hole!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 18,
+    "fields": {
+      "command": "ask innkeeper about Naked Ned",
+      "action": "dialog",
+      "message": "He used to be such a nice, clothed young man. Wonder what he's done with all his old clothes?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 19,
+    "fields": {
+      "command": "ask the knight about robe",
+      "action": "dialog",
+      "message": "Peasants wear those brown robes. You know, with the rope around the waist. Get yourself one of those."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 20,
+    "fields": {
+      "command": "ask baby lady about robe",
+      "action": "dialog",
+      "message": "You can't have mine, pervert! I'm not a nudist peasant like that weirdo over in west Peasantry!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 21,
+    "fields": {
+      "command": "ask mendelev and dongolev about robe",
+      "action": "dialog",
+      "message": "We wouldn't know. We only wear archer clothes. You just can't arch real well in a robe, y'know?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 22,
+    "fields": {
+      "command": "ask jhonka about robe",
+      "action": "dialog",
+      "message": "Filthy naked peasant! Stay away from my cave-hole!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 23,
+    "fields": {
+      "command": "ask innkeeper about robe",
+      "action": "dialog",
+      "message": "I wear my robe hood-down so it's easier to trim my ear-hairs. If you need a robe, maybe try someone that's not using theirs."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 24,
+    "fields": {
+      "command": "ask knight about smell",
+      "action": "dialog",
+      "message": "I never met a peasant that didn't stink. If you wanna smell bad, get the Kerrek involved. That thing reeks!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 25,
+    "fields": {
+      "command": "ask baby lady about smell",
+      "action": "dialog",
+      "message": "What smells is junior here's drawers! I gotta quit feeding him so much horse! And don't start asking me for his diapers, sicko!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 26,
+    "fields": {
+      "command": "ask mendelev and dongolev about smell",
+      "action": "dialog",
+      "message": "That giant pig running around sure smells bad. Maybe talk to him."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 27,
+    "fields": {
+      "command": "ask jhonka about smell",
+      "action": "dialog",
+      "message": "Kerrek smell! Now Kerrek dead!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 28,
+    "fields": {
+      "command": "ask innkeeper about smell",
+      "action": "dialog",
+      "message": "Well, if you don't stink, maybe find something that does and wear it. Like a dead carcass or summat."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 29,
+    "fields": {
+      "command": "ask knight about Trogdor",
+      "action": "dialog",
+      "message": "If I had a gold coin for every whining peasant's cottage that freaking dragon burninated, I'd be rich as a jhonka."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 30,
+    "fields": {
+      "command": "ask baby lady about Trogdor",
+      "action": "dialog",
+      "message": "I hope you kill that stupid dragon. My 'Wives of Squished Peasants' support group would bake you a Poor Gary pie if you did."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 31,
+    "fields": {
+      "command": "ask mendelev and dongolev about Trogdor",
+      "action": "dialog",
+      "message": "Oh man, there was this one time when I came THIS close to having Trogdor ARROWED! says Dongolev. Hey, shut up! That was me! interrupts Mendelev. YOU almost arrowed that blue baby! says Dongolev. Did not! Did so! Did not!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 32,
+    "fields": {
+      "command": "ask jhonka about Trogdor",
+      "action": "dialog",
+      "message": "All hail Burninator! Trogdor Number One! Beat Peasant Tech!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 33,
+    "fields": {
+      "command": "ask innkeeper about Trogdor",
+      "action": "dialog",
+      "message": "Are you talking about that young green boy that lives up the street? He's always tearing my roof off and eating my customers."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 34,
+    "fields": {
+      "command": "attack sign",
+      "action": "dialog",
+      "message": "I was being facetious, Mr. Smarty-short-pants. No sign attacking for you."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 35,
+    "fields": {
+      "command": "attack trogdor",
+      "action": "dialog",
+      "message": "Like how?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 36,
+    "fields": {
+      "command": "boo",
+      "action": "dialog",
+      "message": "Scared me."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 37,
+    "fields": {
+      "command": "break door",
+      "action": "dialog",
+      "message": "Violence is not the answer."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 38,
+    "fields": {
+      "command": "break stump",
+      "action": "dialog",
+      "message": "Are you THAT bored? Do some questing already!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 39,
+    "fields": {
+      "command": "buy kerrek a cold one",
+      "action": "dialog",
+      "message": "The kerrek is a teetotaller and is offended by your offer. You've really cheesed him off now."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 40,
+    "fields": {
+      "command": "cheat",
+      "action": "dialog",
+      "message": "Meh."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 42,
+    "fields": {
+      "command": "climb cliff",
+      "action": "dialog",
+      "message": "They don't show how the sports-drink people get down from the cliff. You've no idea how to start."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 43,
+    "fields": {
+      "command": "jump fence",
+      "action": "dialog",
+      "message": "More like you should walk through that gaping hole in it. Just an idea."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 44,
+    "fields": {
+      "command": "jump fence",
+      "action": "dialog",
+      "message": "More like you should walk through that gaping hole in it. Just an idea."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 45,
+    "fields": {
+      "command": "jump in bucket",
+      "action": "dialog",
+      "message": "Your butt is too big."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 46,
+    "fields": {
+      "command": "jump in well",
+      "action": "dialog",
+      "message": "No go. Your insurance doesn't cover that."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 47,
+    "fields": {
+      "command": "climb tree",
+      "action": "dialog",
+      "message": "Naw, you'd probably figure out some way to kill yourself doing that."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 48,
+    "fields": {
+      "command": "close door",
+      "action": "dialog",
+      "message": "Already done. That was easy!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 49,
+    "fields": {
+      "command": "close door near baby lady",
+      "action": "dialog",
+      "message": "You can't. That baby really wrenched it open good."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 50,
+    "fields": {
+      "command": "close drawer",
+      "action": "dialog",
+      "message": "A riddle: What can be closed that is already closed? (hint: not this drawer)"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 51,
+    "fields": {
+      "command": "close drawer",
+      "action": "dialog",
+      "message": "A riddle: What can be closed that is already closed? (hint: not this drawer)"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 52,
+    "fields": {
+      "command": "cut off arms, legs, and head",
+      "action": "dialog",
+      "message": "Very funny. You have trouble cutting out coupons in the weekly 'Peasant Penny-Pincher' circular. I'd like to see you try."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 53,
+    "fields": {
+      "command": "ask about dan",
+      "action": "dialog",
+      "message": "Dan's still okay. Got a place on Dekalb with Rick and his wife. Slimmed up a bit and looking towards the future."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 54,
+    "fields": {
+      "command": "dance",
+      "action": "dialog",
+      "message": "You'd rather just stand here and soak up the scene."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 55,
+    "fields": {
+      "command": "die",
+      "action": "dialog",
+      "message": "That wasn't very smart. You dead."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 56,
+    "fields": {
+      "command": "drink",
+      "action": "dialog",
+      "message": "For simplicity's sake you are immune to hunger and thirst in this game. So you got that going for you. Which is nice."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 57,
+    "fields": {
+      "command": "drop baby",
+      "action": "dialog",
+      "message": "Use the baby where? You haven't anywhere inconsiderate to stuff him."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 58,
+    "fields": {
+      "command": "enter hay clean",
+      "action": "dialog",
+      "message": "Who do you think you are, MJ? Try from a little closer."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 59,
+    "fields": {
+      "command": "enter hay dirty",
+      "action": "dialog",
+      "message": "Not right now, man. You're feeling fairly clean given you just bathed 3 fortnights ago."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 60,
+    "fields": {
+      "command": "feed horse",
+      "action": "dialog",
+      "message": "There's a good chance that horse has NEVER eaten. I doubt he'll start now."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 61,
+    "fields": {
+      "command": "feed horse",
+      "action": "dialog",
+      "message": "There's a good chance that horse has NEVER eaten. I doubt he'll start now."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 62,
+    "fields": {
+      "command": "feed horse",
+      "action": "dialog",
+      "message": "There's a good chance that horse has NEVER eaten. I doubt he'll start now."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 63,
+    "fields": {
+      "command": "get a room while on fire",
+      "action": "dialog",
+      "message": "Board of Peasant Health says I can't serve any folk that's on fire. Nothing personal. Well, I mean, I don't like you much anyway."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 64,
+    "fields": {
+      "command": "take baby",
+      "action": "dialog",
+      "message": "You want to be a part of this family? GO GET US THOSE RICHES!! she shrieks."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 64,
+    "fields": {
+      "command": "take baby",
+      "action": "dialog",
+      "message": "You want to be a part of this family? GO GET US THOSE RICHES!! she shrieks."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 65,
+    "fields": {
+      "command": "take bell",
+      "action": "dialog",
+      "message": "You can't. It looks like it's been somehow olded to the desk."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 66,
+    "fields": {
+      "command": "take belt",
+      "action": "dialog",
+      "message": "You totally got the belt already, as evidenced by the rancid cloud of odor that follows you like a shadow."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 67,
+    "fields": {
+      "command": "take berries",
+      "action": "dialog",
+      "message": "You've searched your fill of berry bushes for this game. If you want to search more press 'reload' on the browser"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 68,
+    "fields": {
+      "command": "get berries",
+      "action": "dialog",
+      "message": "You already searched that bush. It was okay. Nothing to write home about... oh, wait... you don't have a home. My b."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 69,
+    "fields": {
+      "command": "steal berries",
+      "action": "dialog",
+      "message": "NO MAN! JEEZ!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 70,
+    "fields": {
+      "command": "take skull",
+      "action": "dialog",
+      "message": "Eww. No. Grody. You're grody. No. Eww."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 71,
+    "fields": {
+      "command": "take broom",
+      "action": "dialog",
+      "message": "No, no. The broom is in the foreground and you can't take things from the foreground. You don't see me all typing get browser window, do you?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 72,
+    "fields": {
+      "command": "take bucket",
+      "action": "dialog",
+      "message": "You can't, it's tied to a rope and you're terrible with knots."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 72,
+    "fields": {
+      "command": "take candle",
+      "action": "dialog",
+      "message": "It seems like you should be able to do that, doesn't it? Sorry. No dice."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 73,
+    "fields": {
+      "command": "take chair",
+      "action": "dialog",
+      "message": "No. There's a big bag of something in it. Oh, that's the baby lady."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 74,
+    "fields": {
+      "command": "take club",
+      "action": "dialog",
+      "message": "Now there's a surefire way to get yourself killed."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 75,
+    "fields": {
+      "command": "take drawer",
+      "action": "dialog",
+      "message": "You get a hernia from lifting it. -2 Movement points, -10 Constitution. Don't do that again."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 76,
+    "fields": {
+      "command": "take feed",
+      "action": "dialog",
+      "message": "You don't need anymore. It might give rise to old temptations."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 77,
+    "fields": {
+      "command": "take fire",
+      "action": "dialog",
+      "message": "You're just not flammable enough."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 78,
+    "fields": {
+      "command": "steal fire",
+      "action": "dialog",
+      "message": "You're already on fire! What? You want to be MORE on fire?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 79,
+    "fields": {
+      "command": "get fire",
+      "action": "dialog",
+      "message": "You don't need to get IT. Just let IT get YOU."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 80,
+    "fields": {
+      "command": "take flies",
+      "action": "dialog",
+      "message": "You nasty. Besides, they wouldn't survive a minute away from that horse's butt."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 81,
+    "fields": {
+      "command": "take gold",
+      "action": "dialog",
+      "message": "Um, that's chicken feed."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 82,
+    "fields": {
+      "command": "take hay",
+      "action": "dialog",
+      "message": "Who do you think you are? Some kind of Thy Dungeonman? You don't need any hay."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 83,
+    "fields": {
+      "command": "take kerrek",
+      "action": "dialog",
+      "message": "Well, he does smell real bad. But he's a bit too big to fit in your pocket."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 84,
+    "fields": {
+      "command": "take lantern",
+      "action": "dialog",
+      "message": "Better not. There's an engraved plaque on it that says, Do Not Remove Under Penalty Of You Die."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 85,
+    "fields": {
+      "command": "take mud",
+      "action": "dialog",
+      "message": "You can't get the mud so much. More like the mud'll get you."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 86,
+    "fields": {
+      "command": "steal mud",
+      "action": "dialog",
+      "message": "You've already gotten an heapin' helpin' all up on yo'self."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 87,
+    "fields": {
+      "command": "take note",
+      "action": "dialog",
+      "message": "It's been magically sealed to the door with a wondrously whimsical spell."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 88,
+    "fields": {
+      "command": "steal note",
+      "action": "dialog",
+      "message": "What is it with you and notes?! No!!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 88,
+    "fields": {
+      "command": "take old man rub",
+      "action": "dialog",
+      "message": "You disgust me."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 89,
+    "fields": {
+      "command": "take paper",
+      "action": "dialog",
+      "message": "Naw, it might be important to that wrinkly old loon."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 90,
+    "fields": {
+      "command": "take painting",
+      "action": "dialog",
+      "message": "Weird. It's actually painted right into the wall. Like, the frame and everything."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 91,
+    "fields": {
+      "command": "take plague",
+      "action": "dialog",
+      "message": "You have enough of that on your browning, rotten peasant teeth already."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 92,
+    "fields": {
+      "command": "take pillow",
+      "action": "dialog",
+      "message": "Not a chance. There's even more questionable stains on that pillow than there are on that rug."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 93,
+    "fields": {
+      "command": "take robe",
+      "action": "dialog",
+      "message": "You reach into the closed drawer and nearly break your hand slamming it. Just like a bird on a pane of glass minus the blamelessness."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 94,
+    "fields": {
+      "command": "take rock",
+      "action": "dialog",
+      "message": "For what? Now you're just making up puzzles to solve."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 95,
+    "fields": {
+      "command": "steal rock",
+      "action": "dialog",
+      "message": "That rock's not doin' a whole lot for me."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 96,
+    "fields": {
+      "command": "take rug",
+      "action": "dialog",
+      "message": "You're not touching that thing. Too many questionable stains on it."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 97,
+    "fields": {
+      "command": "take food",
+      "action": "dialog",
+      "message": "Which foodstuffs?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 98,
+    "fields": {
+      "command": "take food",
+      "action": "dialog",
+      "message": "No. Those will fall on you and more than likely kill you."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 99,
+    "fields": {
+      "command": "give baby no baby",
+      "action": "dialog",
+      "message": "You have no baby nor any immediate prospects."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 100,
+    "fields": {
+      "command": "give baby no baby",
+      "action": "dialog",
+      "message": "You have no baby nor any immediate prospects."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 101,
+    "fields": {
+      "command": "give riches to jhonka",
+      "action": "dialog",
+      "message": "The Jhonka will see you! And rip out your jugular with his teeth or something equally horrible."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 102,
+    "fields": {
+      "command": "give trinket to woman",
+      "action": "dialog",
+      "message": "Did you find that thing in my yard? I got that thing free in a box of Plaguezees. I need some FOR REAL riches!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 103,
+    "fields": {
+      "command": "hide in hay",
+      "action": "dialog",
+      "message": "Not right now, man. You're feeling fairly clean given you just bathed 3 fortnights ago."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 104,
+    "fields": {
+      "command": "haldo",
+      "action": "dialog",
+      "message": "What'd you read that in PQ Stragedy Guide? Go talk to my brother first."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 105,
+    "fields": {
+      "command": "hug tree",
+      "action": "dialog",
+      "message": "To every thing, turn, turn, turn. There is a season, turn, turn, turn."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 106,
+    "fields": {
+      "command": "jump in hay",
+      "action": "dialog",
+      "message": "Not right now, man. You're feeling fairly clean given you just bathed 3 fortnights ago."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 107,
+    "fields": {
+      "command": "attack poor gary",
+      "action": "death",
+      "message": "You attempt to cause Poor Gary harm for no good reason other than you kinda suck at this game. Poor Gary kicks you WOW! For a decrepit old horse, Poor Gary still packs a mean whallop. You dead. Thanks for playing."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 108,
+    "fields": {
+      "command": "kill flies",
+      "action": "dialog",
+      "message": "Those flies and that horse's butt have a symbiotic relationship. You have no right to disrupt that."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 108,
+    "fields": {
+      "command": "kill jhonka",
+      "action": "dialog",
+      "message": "No way! Jhonka's are born scrappers. He may be little, but he'll crawl ya."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 109,
+    "fields": {
+      "command": "kill kerrek",
+      "action": "dialog",
+      "message": "No way! Jhonka's are born scrappers. He may be little, but he'll crawl ya."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 110,
+    "fields": {
+      "command": "kill kerrek",
+      "action": "dialog",
+      "message": "With what?! You got no weapons except your butter-knife wit.",
+      "context": "world"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 111,
+    "fields": {
+      "command": "kill Trogdor",
+      "action": "dialog",
+      "message": "Like how?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 112,
+    "fields": {
+      "command": "knock on woman's cottage",
+      "action": "dialog",
+      "message": "It's open, says a female voice from inside. Um, it's NOT open, but you get her drift."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 113,
+    "fields": {
+      "command": "knock on jhonka's cave",
+      "action": "dialog",
+      "message": "A gravelly voice inside yells, JUST US CHICKENS or NO FOR RENT or I GIVE LAST YEAR! or GAVE AT OFFICE or GO WAY!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 114,
+    "fields": {
+      "command": "knock on Inn",
+      "action": "dialog",
+      "message": "Just open it, man!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 115,
+    "fields": {
+      "command": "knock on Naked Ned's cottage",
+      "action": "dialog",
+      "message": "You could knock until your knuckles bleed. Nobody's home."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 116,
+    "fields": {
+      "command": "Knock until knuckles bleed",
+      "action": "dialog",
+      "message": "You knock for about 4 hours until your knuckles are raw and bloody. That was fun!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 117,
+    "fields": {
+      "command": "light candle",
+      "action": "dialog",
+      "message": "It seems like you should be able to do that, doesn't it? Sorry. No dice."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 117,
+    "fields": {
+      "command": "light lantern",
+      "action": "dialog",
+      "message": "With what? Your red-hot intellect? It's already lit."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 118,
+    "fields": {
+      "command": "light lantern",
+      "action": "dialog",
+      "message": "With what? Your red-hot intellect?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 119,
+    "fields": {
+      "command": "look at arrow",
+      "action": "dialog",
+      "message": "Somebody call a tree doctor. Them puppies are stuck in there like a, um, er ... stuck pig."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 120,
+    "fields": {
+      "command": "look at baby",
+      "action": "dialog",
+      "message": "Peasant babies are pretty freaking adorable. This little guy's no exception."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 121,
+    "fields": {
+      "command": "look at bed",
+      "action": "dialog",
+      "message": "Is that just a fitted sheet over a slab of concrete?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 122,
+    "fields": {
+      "command": "look at belt",
+      "action": "dialog",
+      "message": "Yecch. I wouldn't touch that unless it was, like, an important quest item or something."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 123,
+    "fields": {
+      "command": "look at belt",
+      "action": "dialog",
+      "message": "Tis broked."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 124,
+    "fields": {
+      "command": "look at berries",
+      "action": "dialog",
+      "message": "Crunch berries maybe."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 125,
+    "fields": {
+      "command": "look at boat",
+      "action": "dialog",
+      "message": "It was loaned out to the Fishing Challenge videogame."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 126,
+    "fields": {
+      "command": "look at bones",
+      "action": "dialog",
+      "message": "You can't be sure but you think those are dead person bones."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 126,
+    "fields": {
+      "command": "look at broom",
+      "action": "dialog",
+      "message": "The broom is all black and artistic, implying perhaps that it is closer to the viewer's eye but unlit to avoid emphasis."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 127,
+    "fields": {
+      "command": "look at bush",
+      "action": "dialog",
+      "message": "Don't worry about that bush. Yeah, there's red berries on it but never you mind."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 128,
+    "fields": {
+      "command": "look at bushes",
+      "action": "dialog",
+      "message": "You suspect they might be crunch berry bushes."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 129,
+    "fields": {
+      "command": "look at candle",
+      "action": "dialog",
+      "message": "That candle's not at all on fire."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 130,
+    "fields": {
+      "command": "look at cave",
+      "action": "dialog",
+      "message": "The cave entrance beckons to you like a hot mutton sandwich might."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 131,
+    "fields": {
+      "command": "look at chair",
+      "action": "dialog",
+      "message": "One of those self-rocking kind. Not bad for a brown-collar peasant-type. Must be trickle-down in action."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 132,
+    "fields": {
+      "command": "look at chair",
+      "action": "dialog",
+      "message": "One of those self-rocking kind. Not bad for a brown-collar peasant-type. Must be trickle-down in action."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 133,
+    "fields": {
+      "command": "look at turkey leg",
+      "action": "dialog",
+      "message": "Turkey leg or no, it looks like the Jhonka's been gnawing on it."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 134,
+    "fields": {
+      "command": "look at cottage",
+      "action": "dialog",
+      "message": "You had a cottage once. A lot like this one. sniff. Trogdor will pay!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 135,
+    "fields": {
+      "command": "look at crank",
+      "action": "dialog",
+      "message": "That is a bona fide crank."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 136,
+    "fields": {
+      "command": "look at curtain",
+      "action": "dialog",
+      "message": "That thing's awesome. You always wanted one for your dorm room but your roommate was a total drag and said no."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 136,
+    "fields": {
+      "command": "look at desk",
+      "action": "dialog",
+      "message": "It says archery on it. My wife's drunk."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 137,
+    "fields": {
+      "command": "look at door",
+      "action": "dialog",
+      "message": "Listen to you, look door. What kinda gaming is that? It's a door."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 138,
+    "fields": {
+      "command": "look at dresser",
+      "action": "dialog",
+      "message": "This dresser needs a good wipe down with new Indenture(tm), the dust busting miracle spray. There is an especially enticing top drawer that is currently closed."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 139,
+    "fields": {
+      "command": "look at drawer",
+      "action": "dialog",
+      "message": "There is a drawer open and there are some brown lumpy clothes in it."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 140,
+    "fields": {
+      "command": "look at feed",
+      "action": "dialog",
+      "message": "Cool Ranch. Your old favorite."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 141,
+    "fields": {
+      "command": "look at fence",
+      "action": "dialog",
+      "message": "A particularly rickety peasant-issue fence. Trogdor uses bits of these as toothpicks."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 142,
+    "fields": {
+      "command": "look at flies",
+      "action": "dialog",
+      "message": "A cloud of buttflies fly around the horse's butt."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 143,
+    "fields": {
+      "command": "look at footprints",
+      "action": "dialog",
+      "message": "If you were not a simpleton you might think these were Kerrek prints. But since you are a simpleton, you just go, Yay! Piggies!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 144,
+    "fields": {
+      "command": "look at tracks",
+      "action": "dialog",
+      "message": "It's the Kerrek, you moron! Get outta here!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 145,
+    "fields": {
+      "command": "look at ground",
+      "action": "dialog",
+      "message": "Hey, it's your old fireproof map to Peasantry."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 146,
+    "fields": {
+      "command": "look at hay",
+      "action": "dialog",
+      "message": "It reminds you of a warm, safe place where as a child you'd hide."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 147,
+    "fields": {
+      "command": "look at hole with baby",
+      "action": "dialog",
+      "message": "You peer into the tiny opening. The cottage appears to be empty."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 148,
+    "fields": {
+      "command": "look at hole",
+      "action": "dialog",
+      "message": "There is no baby here, but there's an open door on the other side of the room. If you could only get to it somehow!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 149,
+    "fields": {
+      "command": "look at horse",
+      "action": "dialog",
+      "message": "This bag o' bones looks like he's headed for the glue factory. He's got the name Poor Gary branded onto his hide."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 150,
+    "fields": {
+      "command": "look in well",
+      "action": "dialog",
+      "message": "It's dark and welly in there. Smell like stank too."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 151,
+    "fields": {
+      "command": "look at the inn",
+      "action": "dialog",
+      "message": "Looks okay from out here. But do they have a free breakfast buffet?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 152,
+    "fields": {
+      "command": "look at jhonka",
+      "action": "dialog",
+      "message": "The Jhonka is gray and grody. He's got a cromagnon forehead and jaw with a pair of wicked incisors. He sports an old loin-cheese cloth and carries either a big club or one of those roasted turkey legs you got at the Ren Fest."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 153,
+    "fields": {
+      "command": "look at kerrek",
+      "action": "dialog",
+      "message": "It's the Kerrek, you moron! Get outta here!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 154,
+    "fields": {
+      "command": "look at dead kerrek",
+      "action": "dialog",
+      "message": "He dead. You didn't think he could have smelled any worse? Well, guess what: He smells worse."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 155,
+    "fields": {
+      "command": "look at knight",
+      "action": "dialog",
+      "message": "He looks way cooler than you."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 156,
+    "fields": {
+      "command": "look at dude",
+      "action": "dialog",
+      "message": "He looks way cooler than you."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 157,
+    "fields": {
+      "command": "look at guy",
+      "action": "dialog",
+      "message": "He looks way cooler than you."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 158,
+    "fields": {
+      "command": "look at man",
+      "action": "dialog",
+      "message": "He looks way cooler than you."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 159,
+    "fields": {
+      "command": "look at woman",
+      "action": "dialog",
+      "message": "Typical pasty peasant woman, overbearing and judgemental. Obsessed with goods and land."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 160,
+    "fields": {
+      "command": "look at woman",
+      "action": "dialog",
+      "message": "Typical pasty peasant woman, overbearing and judgemental. Obsessed with goods and land."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 161,
+    "fields": {
+      "command": "look at lake",
+      "action": "dialog",
+      "message": "Why it's half a lake."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 162,
+    "fields": {
+      "command": "look at water",
+      "action": "dialog",
+      "message": "It extends onto the next screen and has a sandy shore."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 163,
+    "fields": {
+      "command": "look at lit lantern",
+      "action": "dialog",
+      "message": "It's unlit at the moment. That fancy pants royal knight probably lights it on nights when Troggie's on the prowl."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 164,
+    "fields": {
+      "command": "look at unlit lantern",
+      "action": "dialog",
+      "message": "It's lit! Musta been a Trogdor sighting tonight."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 165,
+    "fields": {
+      "command": "look at lightning",
+      "action": "dialog",
+      "message": "Scary. Like Auntie Gerelda's crow's feet."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 166,
+    "fields": {
+      "command": "look at innkeeper",
+      "action": "dialog",
+      "message": "He's an older peasant with big cotton swabs stuffed up his nose. Oh wait. Those are nose hairs. Grody."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 167,
+    "fields": {
+      "command": "look at fisherman",
+      "action": "dialog",
+      "message": "An older peasant sits silently in a boat with his line in the water."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 168,
+    "fields": {
+      "command": "look at Ned",
+      "action": "dialog",
+      "message": "A fairly naked man is peering out from behind that tree."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 169,
+    "fields": {
+      "command": "look at openings",
+      "action": "dialog",
+      "message": "They're mysterious and out of reach. Like girls were to you in high school."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 170,
+    "fields": {
+      "command": "look at painting",
+      "action": "dialog",
+      "message": "It's a painting of dogs playing 'Magic: The Nerdening.'"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 171,
+    "fields": {
+      "command": "look at paper",
+      "action": "dialog",
+      "message": "It says, 'Note to self: Wave arms wildly!'"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 172,
+    "fields": {
+      "command": "look at pillow",
+      "action": "dialog",
+      "message": "If you sleep in that bed, you're NOT putting your head on that nasty pillow."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 173,
+    "fields": {
+      "command": "look at pot",
+      "action": "dialog",
+      "message": "It's full of horse grease. I guess that sounds useful."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 174,
+    "fields": {
+      "command": "look at rock",
+      "action": "dialog",
+      "message": "The ages have worn this rock down. It is a rock of ages. Still a-rollin."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 175,
+    "fields": {
+      "command": "look at rug",
+      "action": "dialog",
+      "message": "Maybe that used to be a magic carpet. But it's sure a cat pee-stained carpet now."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 176,
+    "fields": {
+      "command": "look at sand",
+      "action": "dialog",
+      "message": "One million three hundred thousand seventy-four hundred and sixty two. One million three hundred thousand seventy-four hundred and sixty three. Drat! You lost count again."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 177,
+    "fields": {
+      "command": "look at shelf",
+      "action": "dialog",
+      "message": "Nothing but a bag of chicken feed."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 178,
+    "fields": {
+      "command": "look at sign",
+      "action": "dialog",
+      "message": "If you can't read that sign, you need to quit playing this game."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 179,
+    "fields": {
+      "command": "look at stump",
+      "action": "dialog",
+      "message": "You run out of ideas as to what to do next, and stare at the stump."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 180,
+    "fields": {
+      "command": "look at target",
+      "action": "dialog",
+      "message": "Hey, they had those same targets at Peasant Scout Camp!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 180,
+    "fields": {
+      "command": "look at burninated tree",
+      "action": "dialog",
+      "message": "Severely burninated. They could probably use some salve."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 181,
+    "fields": {
+      "command": "look at tree",
+      "action": "dialog",
+      "message": "You're really hurtin' for puzzle solutions, huh?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 181,
+    "fields": {
+      "command": "look at trees",
+      "action": "dialog",
+      "message": "You are an incredibly boring person."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 182,
+    "fields": {
+      "command": "look at Trogdor",
+      "action": "dialog",
+      "message": "Holy crap! Trogdor's way bigger in person than he looks in most tapestries you've seen. All of the sudden, losing your cottage doesn't seem so bad anymore."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 183,
+    "fields": {
+      "command": "look at Trogdor",
+      "action": "dialog",
+      "message": "Holy crap! Trogdor's way bigger in person than he looks in most tapestries you've seen. All of the sudden, losing your cottage doesn't seem so bad anymore."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 184,
+    "fields": {
+      "command": "look at water",
+      "action": "dialog",
+      "message": "Got a rock in it."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 185,
+    "fields": {
+      "command": "look at waterfall",
+      "action": "dialog",
+      "message": "Upon closer inspection, you discover it's not magical. That's just mist, not magic sparkles or anything."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 186,
+    "fields": {
+      "command": "look at well",
+      "action": "dialog",
+      "message": "Pretty average. You're not a big well person. You're more into bridges. It does have a cute little bucket though. Your dad liked buckets. Oh, and there's a metal crank too. Meemaw loved cranks."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 187,
+    "fields": {
+      "command": "look at window",
+      "action": "dialog",
+      "message": "Check it out! There's a Peasantry through there!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 188,
+    "fields": {
+      "command": "make friends with kerrek",
+      "action": "dialog",
+      "message": "Look, it didn't work for Strongbad and it's not gonna work for you either."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 189,
+    "fields": {
+      "command": "make a wish",
+      "action": "dialog",
+      "message": "This isn't that kind of well. This is a plaguewater well."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 190,
+    "fields": {
+      "command": "map",
+      "action": "dialog",
+      "message": "We are neither confirming nor denying the presence of a map in this game, but irridisregardless, you don't have one."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 191,
+    "fields": {
+      "command": "open drawer",
+      "action": "dialog",
+      "message": "Yeah, totally! Except it's already open you moron."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 192,
+    "fields": {
+      "command": "party",
+      "action": "dialog",
+      "message": "You are part of the Whig party. They are making gangrene-awareness their number one campaign priority."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 193,
+    "fields": {
+      "command": "pet horse",
+      "action": "dialog",
+      "message": "Aww, that's sweet. Poor Gary tries in vain to bite your arm off."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 194,
+    "fields": {
+      "command": "play game",
+      "action": "dialog",
+      "message": "The gallery's not open and you got no bow or arrows, Cupid."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 195,
+    "fields": {
+      "command": "push door",
+      "action": "dialog",
+      "message": "It doesn't budge, man."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 196,
+    "fields": {
+      "command": "put baby",
+      "action": "dialog",
+      "message": "Where you wanna toss em?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 197,
+    "fields": {
+      "command": "put baby in well",
+      "action": "dialog",
+      "message": "Jeez man! At least put the poor little guy in the bucket! Give him a fighting chance!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 198,
+    "fields": {
+      "command": "put baby in bucket",
+      "action": "dialog",
+      "message": "Li'l tyke seems to enjoy the ride, but - thin or not - we've got a plot to advance here."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 199,
+    "fields": {
+      "command": "put pebbles",
+      "action": "dialog",
+      "message": "Where you wanna toss em?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 200,
+    "fields": {
+      "command": "put pebbles in bucket",
+      "action": "pebbles_in_bucket",
+      "message": "Where you wanna toss em?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 201,
+    "fields": {
+      "command": "pwd",
+      "action": "dialog",
+      "message": "root slash viruses slash delete system folders"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 202,
+    "fields": {
+      "command": "quit",
+      "action": "quit",
+      "message": "Well fine Boring Sanders! Hope you saved your game cause it is OVER between us!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 203,
+    "fields": {
+      "command": "ride horse",
+      "action": "dialog",
+      "message": "Naw, snapping horse spines just doesn't seem as cool as it did in high school."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 204,
+    "fields": {
+      "command": "ring bell",
+      "action": "dialog",
+      "message": "Instead of ringing or dinging, it just goes DUNG."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 205,
+    "fields": {
+      "command": "search bush",
+      "action": "dialog",
+      "message": "You've searched your fill of berry bushes for this game. If you want to search more press 'reload' on the browser"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 206,
+    "fields": {
+      "command": "search bush",
+      "action": "dialog",
+      "message": "You can't be fumbling with a floppy while the Kerrek is bearing down on you."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 207,
+    "fields": {
+      "command": "scare horse",
+      "action": "dialog",
+      "message": "You tell Gary the THE CALLS ARE COMING FROM INSIDE THE HOUSE! one but he doesn't act very scared. He's probably heard it before."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 208,
+    "fields": {
+      "command": "scare gary",
+      "action": "dialog",
+      "message": "You tell Gary about how much cholesterol is in hay and how his arteries are probably all black and clogged. He shrugs it off."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 209,
+    "fields": {
+      "command": "scary story gary",
+      "action": "dialog",
+      "message": "You tell Gary the story about the kid who pops this big zit he has and all these baby spiders come out. It doesn't phase him."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 210,
+    "fields": {
+      "command": "sit on stump",
+      "action": "dialog",
+      "message": "Are you THAT bored?! Do some questing already!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 211,
+    "fields": {
+      "command": "skip stones",
+      "action": "dialog",
+      "message": "You've always been terrible at skipping stones. And you're even worse at just plain throwing rocks in lakes. You decide to save yourself the embarrassment."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 212,
+    "fields": {
+      "command": "slay Trogdor",
+      "action": "dialog",
+      "message": "Like how?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 213,
+    "fields": {
+      "command": "sleep with woman",
+      "action": "dialog",
+      "message": "That's probably how the first baby got here. Forget it."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 213,
+    "fields": {
+      "command": "sleep on bed",
+      "action": "dialog",
+      "message": "You probably want to talk to that stinky old guy over there about that."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 214,
+    "fields": {
+      "command": "smell",
+      "action": "dialog",
+      "message": "Smells like a computer game."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 215,
+    "fields": {
+      "command": "swim",
+      "action": "dialog",
+      "message": "Peasants can't swim. Like, it's illegal."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 216,
+    "fields": {
+      "command": "talk to baby",
+      "action": "dialog",
+      "message": "You say some cute, stupid stuff and the baby just blows snot bubbles."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 217,
+    "fields": {
+      "command": "talk to Gary",
+      "action": "dialog",
+      "message": "Your attempts at conversation are met with horse grunts and tail flaps. Which is better than you do at conversation with most people."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 218,
+    "fields": {
+      "command": "talk to jhonka",
+      "action": "dialog",
+      "message": "Not now! You'll blow your cover!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 219,
+    "fields": {
+      "command": "talk to kerrek",
+      "action": "dialog",
+      "message": "Me llamo Julio, you begin... It seems only to further anger the already tempramental Kerrek. That stupid Learn Kerrek in 3 Weeks cassette did nothing for you!"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 220,
+    "fields": {
+      "command": "talk to lady",
+      "action": "dialog",
+      "message": "You'd call out her name and let it ring through the empty room, enveloping you in sorrow, but you don't actually know her name."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 221,
+    "fields": {
+      "command": "talk to Naked Ned",
+      "action": "dialog",
+      "message": "Never speak of this meeting! says the nudie and he disapperars."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 222,
+    "fields": {
+      "command": "talk to tree",
+      "action": "dialog",
+      "message": "Trees can't talk but a breeze picks up and you swear the leaves whisper the words Naked Ned. Weird."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 223,
+    "fields": {
+      "command": "talk to Trogdor",
+      "action": "dialog",
+      "message": "You yell some choice expletives at Trogdor but he doesn't wake up. There's a cool echo, though."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 224,
+    "fields": {
+      "command": "talk to well",
+      "action": "dialog",
+      "message": "You yell into the well and enjoy the echo. Keep in mind there are no stereos yet."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 225,
+    "fields": {
+      "command": "this sucks",
+      "action": "dialog",
+      "message": "Come now. Don't get discouraged."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 226,
+    "fields": {
+      "command": "throw at lake",
+      "action": "dialog",
+      "message": "That isn't gonna work for bait! The old man screams, at a needlessly harsh volume"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 227,
+    "fields": {
+      "command": "throw feed in lake",
+      "action": "dialog",
+      "message": "Maybe try again from the center of the lake. Looks deeper there."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 228,
+    "fields": {
+      "command": "throw baby in lake",
+      "action": "dialog",
+      "message": "Maybe try again from the center of the lake. Looks deeper there."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 229,
+    "fields": {
+      "command": "throw baby",
+      "action": "dialog",
+      "message": "Throw it where?"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 230,
+    "fields": {
+      "command": "try to escape Naked Ned",
+      "action": "death",
+      "message": "Okay, fine. You try to cut off your hard-earned extremities. It doesn't work. You dead. Thanks for nothing."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 231,
+    "fields": {
+      "command": "turn crank",
+      "action": "dialog",
+      "message": "The drama grips you. Nothing happens. On the bright side, you're getting a pretty sweet workout for your Deltoidus Rex muscles."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 232,
+    "fields": {
+      "command": "use baby",
+      "action": "dialog",
+      "message": "Use the baby where? You haven't anywhere inconsiderate to stuff 'm."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 233,
+    "fields": {
+      "command": "deploy baby",
+      "action": "dialog",
+      "message": "Li'l P.B. has moved on. I can't see why we'd go through this all over again."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 234,
+    "fields": {
+      "command": "use pebbles",
+      "action": "dialog",
+      "message": "What do you propose to do with them? Discuss."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 235,
+    "fields": {
+      "command": "use pebbles",
+      "action": "dialog",
+      "message": "What do you propose to do with them? Discuss."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 236,
+    "fields": {
+      "command": "wake up Trogdor",
+      "action": "dialog",
+      "message": "Troggie, you murmur. Troggie, wake up it's time for Burnination school. He's not budging."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 237,
+    "fields": {
+      "command": "wear belt",
+      "action": "dialog",
+      "message": "You're already wearing it. Too bad you smell like the trash barge off Peasant Isle."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 238,
+    "fields": {
+      "command": "wear mask",
+      "action": "dialog",
+      "message": "Not on this screen. You've got your image to think about. Actually, you might want to start deliberating on that right now."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 239,
+    "fields": {
+      "command": "wear robe",
+      "action": "dialog",
+      "message": "You're already in the old skool robe. Represent."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 240,
+    "fields": {
+      "command": "what the fuck",
+      "action": "dialog",
+      "message": "Come now. Don't get discouraged."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 241,
+    "fields": {
+      "command": "where",
+      "action": "dialog",
+      "message": "You're just hanging out in Peasant Land"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 242,
+    "fields": {
+      "command": "why",
+      "action": "dialog",
+      "message": "I wish I knew."
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 243,
+    "fields": {
+      "command": "Yes",
+      "action": "death",
+      "message": "I KILL YOU!! screams the Jhonka. The Jhonka clubs you to death with a turkey leg. You dead. Thanks for playing!",
+      "context": "jhonka_riches"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 244,
+    "fields": {
+      "command": "take arrow",
+      "action": "dialog",
+      "message": "They have RANGE printed on them, so it would be kind of embarrassing to have to shoot around with them. Also, that guy over there is giving you the evil eye.",
+      "context": "archery_range"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 245,
+    "fields": {
+      "command": "take arrow",
+      "action": "death",
+      "message": "Something tells me now's not a good time. You get the arrow anyway and Dongolev shoots you.",
+      "context": "secret_glen_dongolev"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 246,
+    "fields": {
+      "command": "take arrow",
+      "action": "dialog",
+      "message": "Eww! No way. That thing's got some serious Kerrek-Brand kooties on it now.",
+      "context": "kerrek_dead_body"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 247,
+    "fields": {
+      "command": "look rock",
+      "action": "dialog",
+      "message": "There appears to be a loose stone towards the back of the cottage.",
+      "context": "naked_ned_cottage"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 248,
+    "fields": {
+      "command": "look rock",
+      "action": "dialog",
+      "message": "Some jerk removed a loose stone from the back of the cottage.",
+      "context": "naked_ned_cottage_rock_removed"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 249,
+    "fields": {
+      "command": "open door",
+      "action": "dialog",
+      "message": "It's locked. With one o' them SCHLAGE deadbolts, too. Those things are hard core.",
+      "context": "jhonka_cave"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 250,
+    "fields": {
+      "command": "open door",
+      "action": "dialog",
+      "message": "How? There's no knob.",
+      "context": "naked_ned_cottage"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 251,
+    "fields": {
+      "command": "open door",
+      "action": "dialog",
+      "message": "It's already open. Since this is an adventure game we're gonna proffer you adventure yourself on in there.",
+      "context": "naked_ned_cottage_baby"
+    }
+  },
+  {
+    "model": "commands_api.commands",
+    "pk": 252,
+    "fields": {
+      "command": "open door",
+      "action": "dialog",
+      "message": "That's the pantry, says the Innkeeper. Employees only.",
+      "context": "inn"
+    }
+  }
+]

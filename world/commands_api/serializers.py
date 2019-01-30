@@ -3,7 +3,9 @@ from commands_api.models import Commands
 
 
 class CommandSerializer(serializers.ModelSerializer):
+    """
+    Return only the message to the user.
+    """
     class Meta:
         model = Commands
-        fields = '__all__'
-
+        fields = ['message']

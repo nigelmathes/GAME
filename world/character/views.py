@@ -1,0 +1,46 @@
+from django.contrib.auth.models import User
+from rest_framework import permissions
+from rest_framework import viewsets
+
+from character.models import Character, Abilities, AbilityEffects, PlayerClasses
+from character.serializers import CharacterSerializer, AbilitySerializer, UserSerializer,\
+    AbilityEffectsSerializer, PlayerClassesSerializer
+from character.permissions import IsOwnerOrReadOnly
+
+
+class CharacterViewSet(viewsets.ModelViewSet):
+    """
+    This viewset automatically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+
+    """
+    queryset = Character.objects.all()
+    serializer_class = CharacterSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly,)
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+class AbilityViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Abilities.objects.all()
+    serializer_class = AbilitySerializer
+
+
+class AbilityEffectViewSet(viewsets.ModelViewSet):
+    queryset = AbilityEffects.objects.all()
+    serializer_class = AbilityEffectsSerializer
+
+
+class PlayerClassesViewSet(viewsets.ModelViewSet):
+    queryset = PlayerClasses.objects.all()
+    serializer_class = PlayerClassesSerializer
+
+
+class UserViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    This viewset automatically provides `list` and `detail` actions.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
