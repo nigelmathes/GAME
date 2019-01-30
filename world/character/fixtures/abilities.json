@@ -9,7 +9,7 @@
             "added_effect": "",
             "damage": 10,
             "heal": 0,
-            "message": "Space seems to warp, causing your opponent’s attack to miss."
+            "message": "Space seems to warp, causing your opponent’s area to miss."
         }
     },    {
         "model": "character.abilities",

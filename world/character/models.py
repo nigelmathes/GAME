@@ -14,7 +14,6 @@ class Character(models.Model):
     in_combat = models.BooleanField()
     hit_points = models.FloatField()
     appearance = models.TextField()
-    inventory = models.TextField()
 
 
 class PlayerClasses(models.Model):
