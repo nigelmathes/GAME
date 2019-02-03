@@ -12,7 +12,9 @@ class Character(models.Model):
     location = geo_models.PointField(
         null=True, blank=False, srid=4326, verbose_name="Location")
     in_combat = models.BooleanField()
-    hit_points = models.FloatField()
+    target = models.CharField(max_length=50)
+    hit_points = models.IntegerField()
+    ex_meter = models.IntegerField()
     appearance = models.TextField()
 
 
@@ -28,24 +30,39 @@ class Abilities(models.Model):
     Table to hold the list of abilities
     """
     ability_name = models.CharField(max_length=20)
-    ability_type = models.CharField(max_length=10)  # Attack/Area/Dodge/Block/Disrupt
+    ability_type = models.CharField(max_length=20)  # Attack/Area/Dodge/Block/Disrupt
+    ability_description = models.CharField(max_length=80)
 
 
 class AbilityEffects(models.Model):
     """
-    Table to hold the list of ability effects
+    Table to hold the list of ability effects, which are things like:
+        damage
+        healing
+
+    General rule: Effects take place immediately and serve as base skills if you don't enhance the skill
     """
     # Ability ID points back to the Abilities table
     ability_id = models.ForeignKey(Abilities, related_name='ability_effects', on_delete=models.DO_NOTHING)
-    effect = models.CharField(max_length=20)
-    damage = models.IntegerField()
-    heal = models.IntegerField()
+    effect_name = models.CharField(max_length=20)
+    point_value = models.IntegerField()
 
 
-class AbilityMessages(models.Model):
+class AbilityEnhancements(models.Model):
     """
-    Table to hold ability descriptions/messages to select from
+    Table to hold the list of ability enhancements, which are things like:
+        advantage
+        extra healing
+        extra damage
+        swap weapon
+
+    General rule: Enhancements are added class abilities and can take place over multiple rounds
+
+    point_value corresponds to the numeric effect of the enhancement, e.g.
+        For 'slow', enhancement_type = 'duration', and point_value = 1, representing 1 round of slow
     """
-    # Ability ID points back to the abilities table
-    ability_id = models.ForeignKey(Abilities, related_name='ability_messages', on_delete=models.DO_NOTHING)
-    message = models.TextField()
+    # Ability ID points back to the Abilities table
+    ability_id = models.ForeignKey(Abilities, related_name='ability_enhancements', on_delete=models.DO_NOTHING)
+    enhancement_name = models.CharField(max_length=20)
+    enhancement_type = models.CharField(max_length=20)
+    point_value = models.IntegerField()

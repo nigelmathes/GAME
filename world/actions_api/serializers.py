@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from commands_api.models import Commands
+from actions_api.models import Commands
 
 
 class CommandSerializer(serializers.ModelSerializer):

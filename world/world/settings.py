@@ -37,9 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'commands_api',
+    'actions_api',
     'character',
-    'combat',
     'rest_framework',
     'django.contrib.gis'
 ]
@@ -81,7 +80,7 @@ WSGI_APPLICATION = 'world.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'commands_db',
+        'NAME': 'game_db',
         'USER': 'Nigel',
         'PASSWORD': '',
         'HOST': 'localhost',

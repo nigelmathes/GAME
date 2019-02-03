@@ -1,12 +1,11 @@
-from commands_api.models import Commands
-from commands_api.serializers import CommandSerializer
+from actions_api.models import Commands
+from actions_api.serializers import CommandSerializer
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 import spacy
-import en_core_web_md
 
-nlp = en_core_web_md.load()
+nlp = spacy.load('en')
 
 
 class CommandsListCreate(generics.ListCreateAPIView):

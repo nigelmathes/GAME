@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from character.models import Character, Abilities, PlayerClasses, AbilityEffects, AbilityMessages
+from character.models import Character, Abilities, PlayerClasses, AbilityEffects
 
 
 class CharacterSerializer(serializers.ModelSerializer):
@@ -20,7 +20,6 @@ class PlayerClassesSerializer(serializers.ModelSerializer):
 
 class AbilitySerializer(serializers.ModelSerializer):
     ability_effects = serializers.PrimaryKeyRelatedField(many=True, queryset=AbilityEffects.objects.all())
-    ability_messages = serializers.PrimaryKeyRelatedField(many=True, queryset=AbilityMessages.objects.all())
 
     class Meta:
         model = Abilities
@@ -28,13 +27,6 @@ class AbilitySerializer(serializers.ModelSerializer):
 
 
 class AbilityEffectsSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = AbilityEffects
-        fields = '__all__'
-
-
-class AbilityMessagesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AbilityEffects
