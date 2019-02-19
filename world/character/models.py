@@ -24,6 +24,9 @@ class PlayerClasses(models.Model):
     """
     player_class = models.CharField(max_length=20)
 
+    def __str__(self):
+        return f"{self.player_class}"
+
 
 class Abilities(models.Model):
     """
@@ -32,11 +35,15 @@ class Abilities(models.Model):
     ability_name = models.CharField(max_length=20)
     ability_type = models.CharField(max_length=20)  # Attack/Area/Dodge/Block/Disrupt
     ability_description = models.CharField(max_length=80)
+    class_id = models.ForeignKey(PlayerClasses, related_name='class_abilities', on_delete=models.DO_NOTHING)
+
+    def __str__(self):
+        return f"{self.ability_name}"
 
 
 class AbilityEffects(models.Model):
     """
-    Table to hold the list of ability effects, which are things like:
+    Table to hold the list of base ability effects, which are things like:
         damage
         healing
 
@@ -66,3 +73,6 @@ class AbilityEnhancements(models.Model):
     enhancement_name = models.CharField(max_length=20)
     enhancement_type = models.CharField(max_length=20)
     point_value = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.enhancement_name}"
