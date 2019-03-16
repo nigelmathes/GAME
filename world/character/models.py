@@ -32,13 +32,13 @@ class Abilities(models.Model):
     """
     Table to hold the list of abilities
     """
-    ability_name = models.CharField(max_length=20)
-    ability_type = models.CharField(max_length=20)  # Attack/Area/Dodge/Block/Disrupt
-    ability_description = models.CharField(max_length=80)
+    name = models.CharField(max_length=20)
+    type = models.CharField(max_length=20)  # Attack/Area/Dodge/Block/Disrupt
+    description = models.CharField(max_length=80)
     class_id = models.ForeignKey(PlayerClasses, related_name='class_abilities', on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return f"{self.ability_name}"
+        return f"{self.name}"
 
 
 class AbilityEffects(models.Model):
@@ -51,8 +51,12 @@ class AbilityEffects(models.Model):
     """
     # Ability ID points back to the Abilities table
     ability_id = models.ForeignKey(Abilities, related_name='ability_effects', on_delete=models.DO_NOTHING)
-    effect_name = models.CharField(max_length=20)
-    point_value = models.IntegerField()
+    function = models.CharField(max_length=20)
+    value = models.IntegerField()
+    target = models.CharField(max_length=10, default='target')
+
+    def __str__(self):
+        return f"{self.function} {self.target}"
 
 
 class AbilityEnhancements(models.Model):
@@ -70,9 +74,10 @@ class AbilityEnhancements(models.Model):
     """
     # Ability ID points back to the Abilities table
     ability_id = models.ForeignKey(Abilities, related_name='ability_enhancements', on_delete=models.DO_NOTHING)
-    enhancement_name = models.CharField(max_length=20)
-    enhancement_type = models.CharField(max_length=20)
-    point_value = models.IntegerField()
+    name = models.CharField(max_length=20)
+    function = models.CharField(max_length=20)
+    value = models.IntegerField()
+    target = models.CharField(max_length=10, default='target')
 
     def __str__(self):
-        return f"{self.enhancement_name}"
+        return f"{self.name}"
