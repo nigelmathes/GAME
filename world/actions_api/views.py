@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 import spacy
 
-nlp = spacy.load('en')
+#nlp = spacy.load('en')
 
 
 class CommandsListCreate(generics.ListCreateAPIView):
@@ -45,7 +45,7 @@ class MatchCommands(APIView):
         else:
             print("\nUsing NLP\n")
 
-            message_token = nlp(input_command)
+            #message_token = nlp(input_command)
 
             commands = Commands.objects.filter(context=context)
             commands_strings = commands.values_list('command', flat=True)
@@ -56,8 +56,8 @@ class MatchCommands(APIView):
 
                 command_list.append(command)
                 command_token = nlp(command)
-                similarity = message_token.similarity(command_token)
-                similarity_list.append(similarity)
+                #similarity = message_token.similarity(command_token)
+                #similarity_list.append(similarity)
 
             if similarity_list:
                 matching_index = similarity_list.index(max(similarity_list))
