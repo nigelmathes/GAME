@@ -69,8 +69,8 @@ class AbilityEnhancements(models.Model):
 
     General rule: Enhancements are added class abilities and can take place over multiple rounds
 
-    point_value corresponds to the numeric effect of the enhancement, e.g.
-        For 'slow', enhancement_type = 'duration', and point_value = 1, representing 1 round of slow
+    value corresponds to the numeric effect of the enhancement, e.g.
+        For name = 'slow', function = 'duration', and value = 1, representing 1 round of slow
     """
     # Ability ID points back to the Abilities table
     ability_id = models.ForeignKey(Abilities, related_name='ability_enhancements', on_delete=models.DO_NOTHING)

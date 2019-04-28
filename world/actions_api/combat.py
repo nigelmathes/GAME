@@ -5,7 +5,7 @@ Actions to perform for characters
 from random import randint
 
 import actions_api.combat_effects as combat_effects
-from character.models import PlayerClasses, Abilities, AbilityEffects
+from character.models import PlayerClasses, Abilities
 
 
 def number_to_name(num):
@@ -58,13 +58,13 @@ def name_to_number(name):
     return result
 
 
-def do_combat_round(player, target, attack_type, enhanced=False):
+def do_combat_round(player, target, player_attack_type, enhanced=False):
     """
     Function to complete one round of combat
 
     :param player: Class of player
     :param target: Class of target
-    :param attack_type: Rock/paper/scissors/lizard/spock
+    :param player_attack_type: Rock/paper/scissors/lizard/spock
     :param enhanced: Boolean to tell if to enhance an attack
 
     :return: dict(player_hp, target_hp)
@@ -75,39 +75,64 @@ def do_combat_round(player, target, attack_type, enhanced=False):
 
     #target_attack = randint(0, 4)
     target_attack = 2
-    player_attack = name_to_number(attack_type)
-    player_ability = Abilities.objects.get(class_id=player_class, type=attack_type)
+    target_attack_type = number_to_name(target_attack)
+    player_attack = name_to_number(player_attack_type)
 
+    # Player wins!
     if (target_attack + 1) % 5 == player_attack:
-        # Player wins
-        # Get player's attack details
-        ability = PlayerClasses.objects.get(class_abilities=attack_type)
-        effects = ability.effects
-        pass
+        ability = Abilities.objects.get(class_id=player_class, type=player_attack_type)
+        collect_and_resolve_effects(ability, player, target)
+        print(f"Player wins! (first if) Using {ability} on {target}")
 
+    # Player wins!
     elif (target_attack + 2) % 5 == player_attack:
-        # Player wins!
-        ability = PlayerClasses.objects.get(class_abilities=attack_type)
-        pass
+        ability = Abilities.objects.get(class_id=player_class, type=player_attack_type)
+        collect_and_resolve_effects(ability, player, target)
+        print(f"Player wins! (second if) Using {ability} on {target}")
 
+    # Player and computer tie (clash)
     elif target_attack == player_attack:
-        # Player and computer tie (clash)
-        ability = PlayerClasses.objects.get(class_abilities=attack_type)
-        pass
+        # Player's attack
+        ability1 = Abilities.objects.get(class_id=player_class, type=player_attack_type)
+        collect_and_resolve_effects(ability1, player, target)
 
+        # Target's attack
+        ability2 = Abilities.objects.get(class_id=target_class, type=target_attack_type)
+        collect_and_resolve_effects(ability2, player, target)
+        print(f"Player and target tie! Using both {ability1} on {target} and {ability2} on {player}")
+
+    # Target wins!
     else:
-        # Target wins
-        #ability = PlayerClasses.objects.get(class_abilities=attack_type)
-        print(player_class)
-        print(player_class.class_abilities.values())
-        print(player_ability)
-        print(player_ability.ability_effects.values())
-        print(player_class.class_abilities.values())
+        ability = Abilities.objects.get(class_id=target_class, type=player_attack_type)
+        print(f"Target wins! Using {ability} on {player}")
 
         # Call effect functions
-        for effect in player_ability.ability_effects.values():
-            result = getattr(combat_effects, effect['function'])(value=effect['value'], target=target.id)
+        collect_and_resolve_effects(ability, target, player)
 
-    # Determine results, update tables
+    print(f"Player HP after combat round: {player.hit_points}")
+    print(f"Target HP after combat round: {target.hit_points}")
+    return player, target
 
-    return []
+
+def collect_and_resolve_effects(ability, player, target):
+    """
+    Function to go through the effects tied to a given ability
+    and resolve the cumulative effect of all of them
+
+    :param ability: Queryset for the ability being evaluated, of the form:
+                    Abilities.objects.get(class_id=target_class, type=player_attack_type)
+    :param player: The player using the ability
+    :param target: The target/enemy
+
+    :return: Cumulative effect and an update/save call to the database
+
+    """
+    translation_dictionary = {'target': target, 'player': player}
+
+    # Call effect functions
+    for effect in ability.ability_effects.values():
+        print(effect)
+        player, target = getattr(combat_effects, effect['function'])(value=effect['value'],
+                                                                     player=player,
+                                                                     target=translation_dictionary[effect['target']])
+    return player, target

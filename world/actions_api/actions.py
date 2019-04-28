@@ -28,6 +28,6 @@ class ActionAttack(Action):
         # Perform a round of combat
         combat_result = combat.do_combat_round(player=player,
                                                target=target,
-                                               attack_type=attack)
+                                               player_attack_type=attack)
 
         return [combat_result]
