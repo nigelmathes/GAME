@@ -1,3 +1,5 @@
+from character.models import StatusEffects
+
 def damage(value, player, target):
     """
     Deal damage.
@@ -15,7 +17,7 @@ def damage(value, player, target):
     return player, target
 
 
-def healing(value, player, target):
+def heal(value, player, target):
     """
     Do healing
 
@@ -28,5 +30,24 @@ def healing(value, player, target):
     """
     print(f"DOING {value} HEALING TO {target}")
     target.hit_points += value
+
+    return player, target
+
+
+def prone(value, player, target):
+    """
+    Make the target prone:
+    Next turn, opponent’s block does not beat area
+    
+    :param value: How long the effect lasts
+    :param player: The character using prone
+    :param target: The character being affected by prone
+
+    :return: Updated player, target
+
+    """
+    print(f"{target} will be prone for {value} rounds")
+    status_entry = StatusEffects(character_id=player, name='prone', duration=1)
+    status_entry.save()
 
     return player, target

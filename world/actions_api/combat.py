@@ -73,32 +73,31 @@ def do_combat_round(player, target, player_attack_type, enhanced=False):
     player_class = PlayerClasses.objects.get(player_class=player.character_class)
     target_class = PlayerClasses.objects.get(player_class=target.character_class)
 
-    #target_attack = randint(0, 4)
-    target_attack = 2
+    target_attack = randint(0, 4)
     target_attack_type = number_to_name(target_attack)
     player_attack = name_to_number(player_attack_type)
 
     # Player wins!
     if (target_attack + 1) % 5 == player_attack:
         ability = Abilities.objects.get(class_id=player_class, type=player_attack_type)
-        collect_and_resolve_effects(ability, player, target)
+        collect_and_resolve_effects(ability, player, target, enhanced)
         print(f"Player wins! (first if) Using {ability} on {target}")
 
     # Player wins!
     elif (target_attack + 2) % 5 == player_attack:
         ability = Abilities.objects.get(class_id=player_class, type=player_attack_type)
-        collect_and_resolve_effects(ability, player, target)
+        collect_and_resolve_effects(ability, player, target, enhanced)
         print(f"Player wins! (second if) Using {ability} on {target}")
 
     # Player and computer tie (clash)
     elif target_attack == player_attack:
         # Player's attack
         ability1 = Abilities.objects.get(class_id=player_class, type=player_attack_type)
-        collect_and_resolve_effects(ability1, player, target)
+        collect_and_resolve_effects(ability1, player, target, enhanced)
 
         # Target's attack
         ability2 = Abilities.objects.get(class_id=target_class, type=target_attack_type)
-        collect_and_resolve_effects(ability2, player, target)
+        collect_and_resolve_effects(ability2, player, target, enhanced)
         print(f"Player and target tie! Using both {ability1} on {target} and {ability2} on {player}")
 
     # Target wins!
@@ -107,14 +106,14 @@ def do_combat_round(player, target, player_attack_type, enhanced=False):
         print(f"Target wins! Using {ability} on {player}")
 
         # Call effect functions
-        collect_and_resolve_effects(ability, target, player)
+        collect_and_resolve_effects(ability, target, player, enhanced)
 
     print(f"Player HP after combat round: {player.hit_points}")
     print(f"Target HP after combat round: {target.hit_points}")
     return player, target
 
 
-def collect_and_resolve_effects(ability, player, target):
+def collect_and_resolve_effects(ability, player, target, enhanced=False):
     """
     Function to go through the effects tied to a given ability
     and resolve the cumulative effect of all of them
@@ -123,6 +122,7 @@ def collect_and_resolve_effects(ability, player, target):
                     Abilities.objects.get(class_id=target_class, type=player_attack_type)
     :param player: The player using the ability
     :param target: The target/enemy
+    :param enhanced: Boolean to tell if to enhance an attack
 
     :return: Cumulative effect and an update/save call to the database
 
@@ -131,8 +131,19 @@ def collect_and_resolve_effects(ability, player, target):
 
     # Call effect functions
     for effect in ability.ability_effects.values():
-        print(effect)
         player, target = getattr(combat_effects, effect['function'])(value=effect['value'],
                                                                      player=player,
                                                                      target=translation_dictionary[effect['target']])
+
+    # Add enhancement if it exists
+    if enhanced:
+        for enhancement in ability.ability_enhancements.values():
+            print("Testing...")
+            print(enhancement['value'])
+            print(translation_dictionary[enhancement['target']])
+            player, target = getattr(combat_effects,
+                                     enhancement['function'])(value=enhancement['value'],
+                                                              player=player,
+                                                              target=translation_dictionary[enhancement['target']])
+
     return player, target

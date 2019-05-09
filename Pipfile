@@ -13,6 +13,7 @@ spacy = "*"
 psycopg2 = "*"
 rasa-core-sdk = "*"
 pyyaml = "*"
+mock = "*"
 
 [requires]
 python_version = "3.6"
