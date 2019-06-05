@@ -42,13 +42,15 @@ class Combat:
 
     def calculate_winner(self):
         """
-        Function to calculate the winner based upon SOMETHING
+        Function to calculate the winner
 
         :return: Outcome of combat
         """
         options_dict = self.rules[self.player_attack_type]
 
+        # Loop over the rules, with the player being the comparison
         for result, options in options_dict.items():
+            # Check if the target's attack type is in the rules dict for the player's attack
             if self.target_attack_type in options:
                 if result == "beats":
                     return "player_wins"
@@ -70,13 +72,11 @@ class Combat:
         Block (2) beats Attack (1) and Area (0)
         Disrupt (3) beats Block (2) and Dodge (4)
         Dodge (4) beats Attack (1) and Block (2)
-
         """
         player_class = PlayerClasses.objects.get(player_class=self.player.character_class)
         target_class = PlayerClasses.objects.get(player_class=self.target.character_class)
 
         # Check status effects and apply them to the rules of the game
-        self.check_and_apply_status()
         self.check_and_apply_status()
 
         print(f"Player uses {self.player_attack_type},"
@@ -118,18 +118,26 @@ class Combat:
         Function to check player and target status effects, and apply those effects before combat
 
         :return: Updated rules for combat based upon effects
-
         """
-        player_statuses = self.player.status_effects
-        target_statuses = self.target.status_effects
+        # Check status
+        player_status_check = StatusEffects.objects.filter(character_id=self.player.pk).first()
+        target_status_check = StatusEffects.objects.filter(character_id=self.target.pk).first()
 
-        pass
+        # TODO: Now have to alter the database entry for status effects to change the rules dict
+        # TODO: Also include the capability to increase damage/do damage twice/add a heal/etc.
+        if player_status_check:
+            player_statuses = StatusEffects.objects.get(character_id=self.player.pk)
 
-        #for status in player_statuses:
-        #    pass
+            for status in player_statuses:
+                pass
 
-        #for status in target_statuses:
-        #    pass
+        if target_status_check:
+            target_statuses = StatusEffects.objects.get(character_id=self.player.pk)
+
+            for status in target_statuses:
+                pass
+
+        return self.rules
 
     @staticmethod
     def collect_and_resolve_effects(ability, winner, loser, enhanced=False):
@@ -144,7 +152,6 @@ class Combat:
         :param enhanced: Boolean to tell if to enhance an attack
 
         :return: Cumulative effect and an update/save call to the database
-
         """
         translation_dictionary = {'target': loser, 'self': winner}
 

@@ -86,9 +86,11 @@ class AbilityEnhancements(models.Model):
 class StatusEffects(models.Model):
     """
     Table to hold list of status effects as a foreign key relationship to the Character model
-
     """
     # Character ID points back to the Character table
     character_id = models.ForeignKey(Character, related_name='status_effects', on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     duration = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.name}"

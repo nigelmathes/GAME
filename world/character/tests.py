@@ -76,10 +76,7 @@ class CombatTests(TestCase):
 
     # TODO: Make a healing ability and alter this test
     def test_healing(self):
-        """
-        A round of combat is done successfully
-
-        """
+        """ A round of combat with healing is done successfully """
         # Arrange
         player = Character.objects.get(pk=1)
         target = Character.objects.get(pk=2)
@@ -100,10 +97,7 @@ class CombatTests(TestCase):
         self.assertEqual(target.hit_points, expected_target_hp)
 
     def test_enhancement(self):
-        """
-        A round of combat is done successfully
-
-        """
+        """ A round of combat is done successfully """
         # Arrange
         player = Character.objects.get(pk=1)
         target = Character.objects.get(pk=2)
@@ -128,3 +122,35 @@ class CombatTests(TestCase):
         self.assertEqual(player.hit_points, expected_player_hp)
         self.assertEqual(target.hit_points, expected_target_hp)
         self.assertListEqual(expected_status_list, status_effects_list)
+
+    def test_check_and_apply_status(self):
+        """ Check that check_and_apply_status() updates the combat rules """
+        # Arrange
+        player = Character.objects.get(pk=1)
+        target = Character.objects.get(pk=2)
+        expected_rules = {"area": {"beats": ["disrupt", "dodge", "block"],
+                                   "loses": ["attack"]},
+                          "attack": {"beats": ["disrupt", "area"],
+                                     "loses": ["block", "dodge"]},
+                          "block": {"beats": ["area", "attack"],
+                                    "loses": ["disrupt", "dodge"]},
+                          "disrupt": {"beats": ["block", "dodge"],
+                                      "loses": ["attack", "area"]},
+                          "dodge": {"beats": ["attack", "block"],
+                                    "loses": ["area", "disrupt"]}}
+
+        object_to_test = Combat(player=player,
+                                target=target,
+                                player_attack_type="disrupt",
+                                target_attack_type="block",
+                                enhanced=True)
+
+        # Apply a status effect
+        _ = object_to_test.do_combat_round()
+
+        # Act
+        # Check and apply the status effect
+        _ = object_to_test.check_and_apply_status()
+
+        # Assert
+        self.assertEqual(object_to_test.rules, expected_rules)
