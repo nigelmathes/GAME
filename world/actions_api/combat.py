@@ -4,12 +4,16 @@ Actions to perform for characters
 """
 from random import choice
 
+from django.db import transaction
+from django.db.models import F
+
 import actions_api.combat_effects as combat_effects
 from character.models import PlayerClasses, Abilities, StatusEffects
 
 
 class Combat:
     """ Class to do one round of combat """
+
     def __init__(self, player, target,
                  player_attack_type,
                  target_attack_type=choice(["area", "attack", "block", "disrupt", "dodge"]),
@@ -46,20 +50,14 @@ class Combat:
 
         :return: Outcome of combat
         """
-        options_dict = self.rules[self.player_attack_type]
+        player_rules = self.rules[self.player_attack_type]
 
-        # Loop over the rules, with the player being the comparison
-        for result, options in options_dict.items():
-            # Check if the target's attack type is in the rules dict for the player's attack
-            if self.target_attack_type in options:
-                if result == "beats":
-                    return "player_wins"
-                # result == "loses"
-                else:
-                    return "target_wins"
-
-        # Return tie if result is not in options_dict
-        return "tie"
+        if self.target_attack_type in player_rules['beats']:
+            return "player_wins"
+        elif self.target_attack_type in player_rules['loses']:
+            return "target_wins"
+        else:
+            return "tie"
 
     def do_combat_round(self):
         """
@@ -76,11 +74,11 @@ class Combat:
         player_class = PlayerClasses.objects.get(player_class=self.player.character_class)
         target_class = PlayerClasses.objects.get(player_class=self.target.character_class)
 
-        # Check status effects and apply them to the rules of the game
-        self.check_and_apply_status()
-
         print(f"Player uses {self.player_attack_type},"
               f" target uses {self.target_attack_type}")
+
+        # Check status effects and apply them to the rules of the game
+        self.check_and_apply_status()
 
         # Determine the winner
         outcome = self.calculate_winner()
@@ -117,25 +115,50 @@ class Combat:
         """
         Function to check player and target status effects, and apply those effects before combat
 
+        All status effect functions start with apply_ and take args (target, rules)
+            e.g. apply_prone(target, rules):
+
         :return: Updated rules for combat based upon effects
         """
         # Check status
         player_status_check = StatusEffects.objects.filter(character_id=self.player.pk).first()
         target_status_check = StatusEffects.objects.filter(character_id=self.target.pk).first()
 
-        # TODO: Now have to alter the database entry for status effects to change the rules dict
-        # TODO: Also include the capability to increase damage/do damage twice/add a heal/etc.
+        # Apply status effects to player if they exist
         if player_status_check:
-            player_statuses = StatusEffects.objects.get(character_id=self.player.pk)
+            player_statuses = StatusEffects.objects.filter(character_id=self.player.pk)
 
-            for status in player_statuses:
-                pass
+            # Loop over statuses and apply them
+            for status in player_statuses.values():
+                self.player, self.rules = getattr(combat_effects,
+                                                  'apply_' + status.name)(target=self.player,
+                                                                          rules=self.rules,
+                                                                          left=True)
 
+            # Decrease duration of status effects by 1 turn
+            with transaction.atomic():
+                player_statuses.update(duration=F('duration') - 1)
+
+            # Delete status effects with 0 duration
+            player_statuses.filter(duration=0).delete()
+
+        # Apply status effects to target if they exist
         if target_status_check:
-            target_statuses = StatusEffects.objects.get(character_id=self.player.pk)
+            target_statuses = StatusEffects.objects.filter(character_id=self.target.pk)
 
+            # Loop over statuses and apply them
             for status in target_statuses:
-                pass
+                self.target, self.rules = getattr(combat_effects,
+                                                  'apply_' + status.name)(target=self.target,
+                                                                          rules=self.rules,
+                                                                          left=False)
+
+            # Decrease duration of status effects by 1 turn
+            with transaction.atomic():
+                target_statuses.update(duration=F('duration') - 1)
+
+            # Delete status effects with 0 duration
+            target_statuses.filter(duration=0).delete()
 
         return self.rules
 
@@ -144,6 +167,9 @@ class Combat:
         """
         Function to go through the effects tied to a given ability
         and resolve the cumulative effect of all of them
+
+        All ability effect functions start with inflict_ and take args (value, target)
+            e.g. inflict_damage(value, target)
 
         :param ability: Queryset for the ability being evaluated, of the form:
                         Abilities.objects.get(class_id=target_class, type=player_attack_type)
@@ -155,16 +181,18 @@ class Combat:
         """
         translation_dictionary = {'target': loser, 'self': winner}
 
-        # Call effect functions
+        # Call ability effect functions
         for effect in ability.ability_effects.values():
             translation_dictionary[effect['target']] = \
-                getattr(combat_effects, effect['function'])(value=effect['value'],
-                                                            target=translation_dictionary[effect['target']])
+                getattr(combat_effects, 'inflict_' + effect['function'])(value=effect['value'],
+                                                                         target=translation_dictionary[
+                                                                             effect['target']])
 
         # Add enhancement if it exists
         if enhanced:
             for enhancement in ability.ability_enhancements.values():
                 translation_dictionary[enhancement['target']] = \
-                    getattr(combat_effects, enhancement['function'])(value=enhancement['value'],
-                                                                     target=translation_dictionary[enhancement['target']])
+                    getattr(combat_effects, 'inflict_' + enhancement['function'])(value=enhancement['value'],
+                                                                                  target=translation_dictionary[
+                                                                                      enhancement['target']])
         return winner, loser
