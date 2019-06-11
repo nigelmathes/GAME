@@ -3,35 +3,39 @@ Actions to perform for characters
 
 """
 from random import choice
+from typing import Union, Tuple
 
 from django.db import transaction
-from django.db.models import F
+from django.db.models import F, QuerySet
 
 import actions_api.combat_effects as combat_effects
-from character.models import PlayerClasses, Abilities, StatusEffects
+from character.models import PlayerClasses, Abilities, StatusEffects, Character
 
 
 class Combat:
     """ Class to do one round of combat """
+    CharacterType = Union[QuerySet, Character]
+    AbilitiesType = Union[QuerySet, Abilities]
 
-    def __init__(self, player, target,
-                 player_attack_type,
-                 target_attack_type=choice(["area", "attack", "block", "disrupt", "dodge"]),
-                 enhanced=False):
+    def __init__(self, player: CharacterType,
+                 target: CharacterType,
+                 player_attack_type: str,
+                 target_attack_type: str = choice(["area", "attack", "block", "disrupt", "dodge"]),
+                 player_enhanced: bool = False) -> None:
         """
         Take in a player and target object and do a combat round
 
-        :param player:
-        :param target:
-        :param player_attack_type:
-        :param target_attack_type:
-        :param enhanced:
+        :param player: First player, who is in the "left" position
+        :param target: Second player, who is in the "right" position
+        :param player_attack_type: area/attack/block/disrupt/dodge
+        :param target_attack_type: area/attack/block/disrupt/dodge
+        :param player_enhanced: Whether the left players' attack is enhanced or not
         """
         self.player = player
         self.target = target
         self.player_attack_type = player_attack_type
         self.target_attack_type = target_attack_type
-        self.enhanced = enhanced
+        self.player_enhanced = player_enhanced
 
         self.rules = {"area": {"beats": ["disrupt", "dodge"],
                                "loses": ["attack", "block"]},
@@ -86,24 +90,28 @@ class Combat:
         # Player wins!
         if outcome == "player_wins":
             ability = Abilities.objects.get(class_id=player_class, type=self.player_attack_type)
-            self.collect_and_resolve_effects(ability, winner=self.player, loser=self.target, enhanced=self.enhanced)
+            self.collect_and_resolve_effects(ability, winner=self.player, loser=self.target,
+                                             enhanced=self.player_enhanced)
             print(f"Player wins! Using {ability} ({self.player_attack_type}) on {self.target}")
 
         # Target wins
         elif outcome == "target_wins":
             ability = Abilities.objects.get(class_id=target_class, type=self.target_attack_type)
-            self.collect_and_resolve_effects(ability, winner=self.target, loser=self.player, enhanced=self.enhanced)
+            self.collect_and_resolve_effects(ability, winner=self.target, loser=self.player,
+                                             enhanced=self.player_enhanced)
             print(f"Target wins! Using {ability} ({self.target_attack_type}) on {self.player}")
 
         # Player and computer tie (clash)
         else:
             # Player's attack
             ability1 = Abilities.objects.get(class_id=player_class, type=self.player_attack_type)
-            self.collect_and_resolve_effects(ability1, winner=self.player, loser=self.target, enhanced=self.enhanced)
+            self.collect_and_resolve_effects(ability1, winner=self.player, loser=self.target,
+                                             enhanced=self.player_enhanced)
 
             # Target's attack
             ability2 = Abilities.objects.get(class_id=target_class, type=self.target_attack_type)
-            self.collect_and_resolve_effects(ability2, winner=self.target, loser=self.player, enhanced=self.enhanced)
+            self.collect_and_resolve_effects(ability2, winner=self.target, loser=self.player,
+                                             enhanced=self.player_enhanced)
             print(f"Player and target tie! Using both {ability1} on {self.target} and {ability2} on {self.player}")
 
         print(f"Player HP after combat round: {self.player.hit_points}")
@@ -118,7 +126,7 @@ class Combat:
         All status effect functions start with apply_ and take args (target, rules)
             e.g. apply_prone(target, rules):
 
-        :return: Updated rules for combat based upon effects
+        :return: Updated rules for combat based on effects
         """
         # Check status
         player_status_check = StatusEffects.objects.filter(character_id=self.player.pk).first()
@@ -163,7 +171,10 @@ class Combat:
         return self.rules
 
     @staticmethod
-    def collect_and_resolve_effects(ability, winner, loser, enhanced=False):
+    def collect_and_resolve_effects(ability: AbilitiesType,
+                                    winner: CharacterType,
+                                    loser: CharacterType,
+                                    enhanced: bool = False) -> Tuple[CharacterType, CharacterType]:
         """
         Function to go through the effects tied to a given ability
         and resolve the cumulative effect of all of them

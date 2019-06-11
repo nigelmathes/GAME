@@ -29,13 +29,14 @@ def inflict_heal(value, target):
     return target
 
 
+# Enhanced effect of Dreamer's Moving Sidewalk - prone
 def inflict_prone(value, target):
     """
     Make the target prone by adding the status effect to the target's statuses
     Next turn, target’s block does not beat area
     
     :param value: How long the effect lasts
-    :param target: The character receiving the 'prone' status effect
+    :param target: The character receiving the status effect
 
     :return: Updated target
     """
@@ -47,29 +48,19 @@ def inflict_prone(value, target):
     return target
 
 
+# Enhanced effect of Dreamer's Moving Sidewalk - prone
 def apply_prone(target, rules, left):
     """
     Apply the effects of prone to the target:
-    Next turn, target’s block does not beat area. Will transform:
+    Next turn, target’s block does not beat area.
 
-        "block": {"beats": ["attack", "area"], "loses": ["disrupt", "dodge"]}
-        "area": {"beats": ["disrupt", "dodge"], "loses": ["attack", "block"]},
-
-                                    to...(left==True)
-
-        "block": {"beats": ["attack"], "loses": ["disrupt", "dodge", "area"]}
-
-                                    or...(left==False)
-
-        "area": {"beats": ["disrupt", "dodge", "block"], "loses": ["attack"]}
-
-    :param target: The character being affected by prone
+    :param target: The character being affected
     :param rules: The ruleset to edit
     :param left: Position of the target (left or right, corresponding to left/right keys in rules dict)
 
     :return: Updated target and ruleset
     """
-    # If left, then the target is the primary and the left keys for the rules should be edited
+    # "block": {"beats": ["attack"], "loses": ["disrupt", "dodge", "area"]}
     if left:
         # Remove area from the block: beats dict
         if "area" in rules["block"]["beats"]:
@@ -78,7 +69,8 @@ def apply_prone(target, rules, left):
         # Add area to the block: loses dict
         if "area" not in rules["block"]["loses"]:
             rules["block"]["loses"].append("area")
-    # If right (not left), then the target is the secondary and the right keys for the rules should be edited
+
+    # "area": {"beats": ["disrupt", "dodge", "block"], "loses": ["attack"]}
     else:
         # Remove block from the area: loses dict
         if "block" in rules["area"]["loses"]:
@@ -87,5 +79,58 @@ def apply_prone(target, rules, left):
         # Add block to the area: beats dict
         if "block" not in rules["area"]["beats"]:
             rules["area"]["beats"].append("block")
+
+    return target, rules
+
+
+# Enhanced effect of Dreamer's Fold Earth - disorient
+def inflict_disorient(value, target):
+    """
+    Make the target disorient by adding the status effect to the target's statuses
+
+    :param value: How long the effect lasts
+    :param target: The character receiving the status effect
+
+    :return: Updated target
+    """
+    status_entry = StatusEffects(character_id=target, name='disorient', duration=value)
+
+    # Add the prone status effect to the StatusEffects database
+    status_entry.save()
+
+    return target
+
+
+# Enhanced effect of Dreamer's Fold Earth - disorient
+def apply_disorient(target, rules, left):
+    """
+    Apply the effects of disorient to the target:
+    Next turn, target’s dodge does not beat attack.
+
+    :param target: The character being affected
+    :param rules: The ruleset to edit
+    :param left: Position of the target (left or right, corresponding to left/right keys in rules dict)
+
+    :return: Updated target and ruleset
+    """
+    # "dodge": {"beats": ["block"], "loses": ["area", "disrupt", "attack"]}
+    if left:
+        # Remove area from the block: beats dict
+        if "attack" in rules["dodge"]["beats"]:
+            rules["dodge"]["beats"].remove("attack")
+
+        # Add area to the block: loses dict
+        if "attack" not in rules["dodge"]["loses"]:
+            rules["dodge"]["loses"].append("attack")
+
+    # "attack": {"beats": ["area", "disrupt", "attack"], "loses": ["block"]}
+    else:
+        # Remove block from the area: loses dict
+        if "dodge" in rules["attack"]["loses"]:
+            rules["attack"]["loses"].remove("dodge")
+
+        # Add block to the area: beats dict
+        if "dodge" not in rules["attack"]["beats"]:
+            rules["attack"]["beats"].append("dodge")
 
     return target, rules
