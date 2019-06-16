@@ -8,12 +8,12 @@ verify_ssl = true
 [packages]
 django = "*"
 djangorestframework = "*"
-djangorestframework-gis = "*"
 spacy = "*"
 psycopg2 = "*"
 rasa-core-sdk = "*"
 pyyaml = "*"
 mock = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.7"

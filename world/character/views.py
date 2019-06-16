@@ -26,21 +26,25 @@ class CharacterViewSet(viewsets.ModelViewSet):
 class AbilityViewSet(viewsets.ModelViewSet):
     queryset = Abilities.objects.all()
     serializer_class = AbilitySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class AbilityEffectViewSet(viewsets.ModelViewSet):
     queryset = AbilityEffects.objects.all()
     serializer_class = AbilityEffectsSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class AbilityEnhancementsViewSet(viewsets.ModelViewSet):
     queryset = AbilityEnhancements.objects.all()
     serializer_class = AbilityEnhancementsSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class PlayerClassesViewSet(viewsets.ModelViewSet):
     queryset = PlayerClasses.objects.all()
     serializer_class = PlayerClassesSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class UserViewSet(viewsets.ReadOnlyModelViewSet):

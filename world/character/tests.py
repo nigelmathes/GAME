@@ -19,8 +19,8 @@ class CombatTests(TestCase):
         # Arrange
         player = Character.objects.get(pk=1)
         target = Character.objects.get(pk=2)
-        expected_player_hp = 100
-        expected_target_hp = 0
+        expected_player_hp = player.hit_points
+        expected_target_hp = target.hit_points - 100
 
         object_to_test = Combat(player=player,
                                 target=target,
@@ -73,8 +73,8 @@ class CombatTests(TestCase):
                 player, target = object_to_test.do_combat_round()
 
                 # Assert
-                self.assertEqual(player.hit_points, expected_player_hps[i][j])
-                self.assertEqual(target.hit_points, expected_target_hps[i][j])
+                self.assertEqual(player.hit_points, 400 + expected_player_hps[i][j])
+                self.assertEqual(target.hit_points, 400 + expected_target_hps[i][j])
 
     # TODO: Make a healing ability and alter this test
     def test_healing(self):
@@ -82,8 +82,8 @@ class CombatTests(TestCase):
         # Arrange
         player = Character.objects.get(pk=1)
         target = Character.objects.get(pk=2)
-        expected_player_hp = 0
-        expected_target_hp = 100
+        expected_player_hp = player.hit_points - 100
+        expected_target_hp = target.hit_points
 
         object_to_test = Combat(player=player,
                                 target=target,
@@ -110,8 +110,8 @@ class CombatTests(TestCase):
         for expected_status, ability_combo in zip(expected_statuses, ability_combos):
             player = Character.objects.get(pk=1)
             target = Character.objects.get(pk=2)
-            expected_player_hp = 100
-            expected_target_hp = 0
+            expected_player_hp = player.hit_points
+            expected_target_hp = target.hit_points - 100
 
             # Perform a round of combat
             object_to_test = Combat(player=player,

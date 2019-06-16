@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'actions_api',
     'character',
     'rest_framework',
-    'django.contrib.gis'
+    'django.contrib.gis',
+    'django_extensions'
 ]
 
 MIDDLEWARE = [

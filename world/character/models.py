@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.gis.db import models as geo_models
 
 
 class Character(models.Model):
@@ -9,13 +8,13 @@ class Character(models.Model):
     owner = models.ForeignKey('auth.User', related_name='characters', on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     character_class = models.CharField(max_length=20)
-    location = geo_models.PointField(
-        null=True, blank=False, srid=4326, verbose_name="Location")
-    in_combat = models.BooleanField()
-    target = models.CharField(max_length=50)
-    hit_points = models.IntegerField()
-    ex_meter = models.IntegerField()
-    appearance = models.TextField()
+    latitude = models.DecimalField(max_digits=9, decimal_places=7, default=0.0000000)
+    longitude = models.DecimalField(max_digits=9, decimal_places=7, default=0.0000000)
+    in_combat = models.BooleanField(default=False)
+    target = models.CharField(max_length=50, default="None")
+    hit_points = models.IntegerField(default=500)
+    ex_meter = models.IntegerField(default=1000)
+    appearance = models.TextField(default="No entry - you must be hella ugly")
 
 
 class PlayerClasses(models.Model):
@@ -38,7 +37,7 @@ class Abilities(models.Model):
     class_id = models.ForeignKey(PlayerClasses, related_name='class_abilities', on_delete=models.DO_NOTHING)
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.class_id.player_class} - {self.name}"
 
 
 class AbilityEffects(models.Model):
@@ -56,7 +55,7 @@ class AbilityEffects(models.Model):
     target = models.CharField(max_length=10, default='target')
 
     def __str__(self):
-        return f"{self.function} {self.target}"
+        return f"{self.ability_id.name} - {self.function} {self.target}"
 
 
 class AbilityEnhancements(models.Model):
@@ -80,7 +79,7 @@ class AbilityEnhancements(models.Model):
     target = models.CharField(max_length=10, default='target')
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.ability_id.name} - {self.name}, {self.function}"
 
 
 class StatusEffects(models.Model):
@@ -93,4 +92,4 @@ class StatusEffects(models.Model):
     duration = models.IntegerField()
 
     def __str__(self):
-        return f"{self.name}"
+        return f"{self.character_id.name} - {self.name}"
