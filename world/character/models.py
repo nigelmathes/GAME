@@ -8,12 +8,14 @@ class Character(models.Model):
     owner = models.ForeignKey('auth.User', related_name='characters', on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     character_class = models.CharField(max_length=20)
-    latitude = models.DecimalField(max_digits=9, decimal_places=7, default=0.0000000)
-    longitude = models.DecimalField(max_digits=9, decimal_places=7, default=0.0000000)
+    latitude = models.DecimalField(max_digits=10, decimal_places=7, default=0.0000000)
+    longitude = models.DecimalField(max_digits=10, decimal_places=7, default=0.0000000)
+    home_latitude = models.DecimalField(max_digits=10, decimal_places=7, default=0.0000000)
+    home_longitude = models.DecimalField(max_digits=10, decimal_places=7, default=0.0000000)
     in_combat = models.BooleanField(default=False)
     target = models.CharField(max_length=50, default="None")
     hit_points = models.IntegerField(default=500)
-    ex_meter = models.IntegerField(default=1000)
+    ex_meter = models.IntegerField(default=0)
     appearance = models.TextField(default="No entry - you must be hella ugly")
 
 
@@ -22,6 +24,7 @@ class PlayerClasses(models.Model):
     Table to hold the list of playable classes
     """
     player_class = models.CharField(max_length=20)
+    ex_meter_max = models.IntegerField(default=1000)
 
     def __str__(self):
         return f"{self.player_class}"

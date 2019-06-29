@@ -1,6 +1,5 @@
 """
 Actions to perform for characters
-
 """
 from random import choice
 from typing import Union, Tuple
@@ -92,6 +91,11 @@ class Combat:
             ability = Abilities.objects.get(class_id=player_class, type=self.player_attack_type)
             self.collect_and_resolve_effects(ability, winner=self.player, loser=self.target,
                                              enhanced=self.player_enhanced)
+
+            # Update EX meters
+            self.player.ex_meter += 50
+            self.target.ex_meter += 100
+
             print(f"Player wins! Using {ability} ({self.player_attack_type}) on {self.target}")
 
         # Target wins
@@ -99,6 +103,11 @@ class Combat:
             ability = Abilities.objects.get(class_id=target_class, type=self.target_attack_type)
             self.collect_and_resolve_effects(ability, winner=self.target, loser=self.player,
                                              enhanced=self.player_enhanced)
+
+            # Update EX meters
+            self.player.ex_meter += 100
+            self.target.ex_meter += 50
+
             print(f"Target wins! Using {ability} ({self.target_attack_type}) on {self.player}")
 
         # Player and computer tie (clash)
@@ -112,6 +121,11 @@ class Combat:
             ability2 = Abilities.objects.get(class_id=target_class, type=self.target_attack_type)
             self.collect_and_resolve_effects(ability2, winner=self.target, loser=self.player,
                                              enhanced=self.player_enhanced)
+
+            # Update EX meters
+            self.player.ex_meter += 150
+            self.target.ex_meter += 150
+
             print(f"Player and target tie! Using both {ability1} on {self.target} and {ability2} on {self.player}")
 
         print(f"Player HP after combat round: {self.player.hit_points}")

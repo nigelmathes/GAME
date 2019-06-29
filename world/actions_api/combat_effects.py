@@ -86,7 +86,7 @@ def apply_prone(target, rules, left):
 # Enhanced effect of Dreamer's Fold Earth - disorient
 def inflict_disorient(value, target):
     """
-    Make the target disorient by adding the status effect to the target's statuses
+    Make the target disoriented by adding the status effect to the target's statuses
 
     :param value: How long the effect lasts
     :param target: The character receiving the status effect
@@ -123,7 +123,7 @@ def apply_disorient(target, rules, left):
         if "attack" not in rules["dodge"]["loses"]:
             rules["dodge"]["loses"].append("attack")
 
-    # "attack": {"beats": ["area", "disrupt", "attack"], "loses": ["block"]}
+    # "attack": {"beats": ["area", "disrupt", "dodge"], "loses": ["block"]}
     else:
         # Remove block from the area: loses dict
         if "dodge" in rules["attack"]["loses"]:
@@ -134,3 +134,57 @@ def apply_disorient(target, rules, left):
             rules["attack"]["beats"].append("dodge")
 
     return target, rules
+
+
+# Enhanced effect of Chosen's Extreme Speed - haste
+def inflict_haste(value, target):
+    """
+    Make the target hasted by adding the status effect to the target's statuses
+
+    :param value: How long the effect lasts
+    :param target: The character receiving the status effect
+
+    :return: Updated target
+    """
+    status_entry = StatusEffects(character_id=target, name='haste', duration=value)
+
+    # Add the prone status effect to the StatusEffects database
+    status_entry.save()
+
+    return target
+
+
+# Enhanced effect of Chosen's Extreme Speed - haste
+def apply_haste(target, rules, left):
+    """
+    Apply the effects of haste to the target:
+    Next turn, target's attack will beat an opposing attack (no clash)
+
+    :param target: The character being affected
+    :param rules: The ruleset to edit
+    :param left: Position of the target (left or right, corresponding to left/right keys in rules dict)
+
+    :return: Updated target and ruleset
+    """
+    # "attack": {"beats": ["disrupt", "area", "attack"], "loses": ["block", "dodge"]}
+    if left:
+        # Remove attack from the attack: loses dict
+        if "attack" in rules["attack"]["loses"]:
+            rules["attack"]["loses"].remove("attack")
+
+        # Add attack to the attack: beats dict
+        if "attack" not in rules["attack"]["beats"]:
+            rules["attack"]["beats"].append("attack")
+
+    # "attack": {"beats": ["disrupt", "area"], "loses": ["block", "dodge", "attack"]}
+    else:
+        # Remove attack from the attack: beats dict
+        if "attack" in rules["attack"]["beats"]:
+            rules["attack"]["beats"].remove("attack")
+
+        # Add attack to the attack: loses dict
+        if "attack" not in rules["attack"]["loses"]:
+            rules["attack"]["loses"].append("attack")
+
+    return target, rules
+

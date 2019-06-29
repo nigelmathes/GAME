@@ -9,21 +9,26 @@ http://localhost:8000/abilities/1
 ```
 
 ## Useful commands:
+Get things up and running after changing models:
+```
+pipenv run python world/manage.py makemigrations
+pipenv run python world/manage.py migrate
+pipenv run python world/manage.py runserver
+```
 
 Backup the database:
 ```
 ./backup_database.sh
 ```
 
-Load from database backup:
+Load from database backup, destroying anything not in the backup:
 ```
 pipenv run python manage.py syncdata full_backup.json
 ```
 
-Seed the database with commands.json:
-
+Load from database backup, destroying nothing:
 ```
-`python manage.py loaddata commands
+pipenv run python manage.py loaddata full_backup.json
 ```
 
 To Create PostgreSQL database:

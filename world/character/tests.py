@@ -22,6 +22,9 @@ class CombatTests(TestCase):
         expected_player_hp = player.hit_points
         expected_target_hp = target.hit_points - 100
 
+        expected_player_ex = 50
+        expected_target_ex = 100
+
         object_to_test = Combat(player=player,
                                 target=target,
                                 player_attack_type="attack",
@@ -34,6 +37,8 @@ class CombatTests(TestCase):
         # Assert
         self.assertEqual(player.hit_points, expected_player_hp)
         self.assertEqual(target.hit_points, expected_target_hp)
+        self.assertEqual(player.ex_meter, expected_player_ex)
+        self.assertEqual(target.ex_meter, expected_target_ex)
 
     def test_matchups(self):
         """
@@ -72,7 +77,7 @@ class CombatTests(TestCase):
 
                 player, target = object_to_test.do_combat_round()
 
-                # Assert
+                # Assert - The 400 is a kluge because I don't want to remake the list above
                 self.assertEqual(player.hit_points, 400 + expected_player_hps[i][j])
                 self.assertEqual(target.hit_points, 400 + expected_target_hps[i][j])
 
