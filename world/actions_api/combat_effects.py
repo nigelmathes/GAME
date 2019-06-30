@@ -192,8 +192,8 @@ def apply_haste(target, rules, added_effects, left):
     return target, rules, added_effects
 
 
-# Enhanced effect of Chosen's Focused Punch - double damage
-def inflict_double_damage(value, target):
+# Enhanced effect of NOT IMPLEMENTED
+def inflict_delayed_double_damage(value, target):
     """
     Make the target's next attack do double damage by
     adding the status effect to the target's statuses
@@ -211,8 +211,8 @@ def inflict_double_damage(value, target):
     return target
 
 
-# Enhanced effect of Chosen's Focused Punch - double damage
-def apply_double_damage(target, rules, added_effects, left):
+# Enhanced effect of NOT IMPLEMENTED
+def apply_delayed_double_damage(target, rules, added_effects, left):
     """
     Apply the effects of double_damage to the target:
     Next turn, target's attack will do double damage

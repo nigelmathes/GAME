@@ -237,3 +237,100 @@ class CombatTests(TestCase):
         self.assertEqual(result, expected_outcome)
         self.assertDictEqual(new_rules, expected_rules)
         self.assertDictEqual(object_to_test.rules, expected_rules)
+
+    def test_double_damage(self):
+        """ Check that an extra effect is added for the double damage status"""
+        # Arrange
+        player = Character.objects.get(pk=3)
+        target = Character.objects.get(pk=2)
+        expected_rules = {"area": {"beats": ["disrupt", "dodge"],
+                                   "loses": ["attack", "block"]},
+                          "attack": {"beats": ["disrupt", "area"],
+                                     "loses": ["block", "dodge"]},
+                          "block": {"beats": ["area", "attack"],
+                                    "loses": ["disrupt", "dodge"]},
+                          "disrupt": {"beats": ["block", "dodge"],
+                                      "loses": ["attack", "area"]},
+                          "dodge": {"beats": ["attack", "block"],
+                                    "loses": ["area", "disrupt"]}}
+
+        object_to_test = Combat(player=player,
+                                target=target,
+                                player_attack_type="attack",
+                                target_attack_type="area",
+                                player_enhanced=True)
+
+        # Act
+        _ = object_to_test.do_combat_round()
+
+        # Assert target lost 200 HP instead of 100
+        self.assertEqual(player.hit_points, 500)
+        self.assertEqual(target.hit_points, 300)
+
+        # Assert no status effects exist
+        check_player_status = StatusEffects.objects.filter(character_id=player.pk)
+        self.assertFalse(check_player_status.exists())
+        check_target_status = StatusEffects.objects.filter(character_id=target.pk)
+        self.assertFalse(check_target_status.exists())
+
+        # Assert rules didn't change
+        self.assertDictEqual(object_to_test.rules, expected_rules)
+
+    def test_added_effect(self):
+        """ Check that an extra effect is added for the double damage status"""
+        # Arrange
+        player = Character.objects.get(pk=3)
+        target = Character.objects.get(pk=2)
+        expected_rules = {"area": {"beats": ["disrupt", "dodge"],
+                                   "loses": ["attack", "block"]},
+                          "attack": {"beats": ["disrupt", "area"],
+                                     "loses": ["block", "dodge"]},
+                          "block": {"beats": ["area", "attack"],
+                                    "loses": ["disrupt", "dodge"]},
+                          "disrupt": {"beats": ["block", "dodge"],
+                                      "loses": ["attack", "area"]},
+                          "dodge": {"beats": ["attack", "block"],
+                                    "loses": ["area", "disrupt"]}}
+
+        expected_status = {}
+        expected_player_added_effects = {}
+        expected_target_added_effects = {}
+
+        object_to_test = Combat(player=player,
+                                target=target,
+                                player_attack_type="attack",
+                                target_attack_type="area",
+                                player_enhanced=True)
+
+        # Act
+        # Inflict a status effect and check HP's
+        _ = object_to_test.do_combat_round()
+        self.assertEqual(player.hit_points, 500)
+        self.assertEqual(target.hit_points, 300)
+
+        # Check status effect applied to player
+        #check_status = StatusEffects.objects.filter(character_id=player.pk)
+        #self.assertEqual(check_status, expected_status)
+
+        # Apply status effect
+        #new_rules, player_added_effects, target_added_effects = object_to_test.check_and_apply_status()
+
+        # Check that added effects worked
+        #self.assertEqual(player_added_effects, expected_player_added_effects)
+        #self.assertEqual(target_added_effects, expected_target_added_effects)
+
+        # Attack a second time to apply double damage
+        #object_to_test.player_enhanced = False
+        #_ = object_to_test.do_combat_round()
+
+        # Assert the target took 200 damage
+        #self.assertEqual(player.hit_points, 500)
+        #self.assertEqual(target.hit_points, 200)
+
+        # Assert rules didn't change
+        #self.assertDictEqual(new_rules, expected_rules)
+        #self.assertDictEqual(object_to_test.rules, expected_rules)
+
+        # Assert the status effect was removed from the status database
+        #check_status_after_apply = StatusEffects.objects.filter(character_id=player.pk)
+        #self.assertFalse(check_status_after_apply.exists())
