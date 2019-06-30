@@ -225,7 +225,7 @@ class CombatTests(TestCase):
         _ = object_to_test.do_combat_round()
 
         # Check and apply the status effect
-        new_rules = object_to_test.check_and_apply_status()
+        new_rules, _, _ = object_to_test.check_and_apply_status()
 
         # Change the attack type to something that applies to the altered ruleset
         object_to_test.player_attack_type = "area"

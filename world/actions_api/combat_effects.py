@@ -49,13 +49,14 @@ def inflict_prone(value, target):
 
 
 # Enhanced effect of Dreamer's Moving Sidewalk - prone
-def apply_prone(target, rules, left):
+def apply_prone(target, rules, added_effects, left):
     """
     Apply the effects of prone to the target:
     Next turn, target’s block does not beat area.
 
     :param target: The character being affected
     :param rules: The ruleset to edit
+    :param added_effects: Additional ability effects
     :param left: Position of the target (left or right, corresponding to left/right keys in rules dict)
 
     :return: Updated target and ruleset
@@ -80,7 +81,7 @@ def apply_prone(target, rules, left):
         if "block" not in rules["area"]["beats"]:
             rules["area"]["beats"].append("block")
 
-    return target, rules
+    return target, rules, added_effects
 
 
 # Enhanced effect of Dreamer's Fold Earth - disorient
@@ -102,13 +103,14 @@ def inflict_disorient(value, target):
 
 
 # Enhanced effect of Dreamer's Fold Earth - disorient
-def apply_disorient(target, rules, left):
+def apply_disorient(target, rules, added_effects, left):
     """
     Apply the effects of disorient to the target:
     Next turn, target’s dodge does not beat attack.
 
     :param target: The character being affected
     :param rules: The ruleset to edit
+    :param added_effects: Additional ability effects
     :param left: Position of the target (left or right, corresponding to left/right keys in rules dict)
 
     :return: Updated target and ruleset
@@ -133,7 +135,7 @@ def apply_disorient(target, rules, left):
         if "dodge" not in rules["attack"]["beats"]:
             rules["attack"]["beats"].append("dodge")
 
-    return target, rules
+    return target, rules, added_effects
 
 
 # Enhanced effect of Chosen's Extreme Speed - haste
@@ -155,13 +157,14 @@ def inflict_haste(value, target):
 
 
 # Enhanced effect of Chosen's Extreme Speed - haste
-def apply_haste(target, rules, left):
+def apply_haste(target, rules, added_effects, left):
     """
     Apply the effects of haste to the target:
     Next turn, target's attack will beat an opposing attack (no clash)
 
     :param target: The character being affected
     :param rules: The ruleset to edit
+    :param added_effects: Additional ability effects
     :param left: Position of the target (left or right, corresponding to left/right keys in rules dict)
 
     :return: Updated target and ruleset
@@ -186,5 +189,41 @@ def apply_haste(target, rules, left):
         if "attack" not in rules["attack"]["loses"]:
             rules["attack"]["loses"].append("attack")
 
-    return target, rules
+    return target, rules, added_effects
 
+
+# Enhanced effect of Chosen's Focused Punch - double damage
+def inflict_double_damage(value, target):
+    """
+    Make the target's next attack do double damage by
+    adding the status effect to the target's statuses
+
+    :param value: How long the effect lasts
+    :param target: The character receiving the status effect
+
+    :return: Updated target
+    """
+    status_entry = StatusEffects(character_id=target, name='double_damage', duration=value)
+
+    # Add the prone status effect to the StatusEffects database
+    status_entry.save()
+
+    return target
+
+
+# Enhanced effect of Chosen's Focused Punch - double damage
+def apply_double_damage(target, rules, added_effects, left):
+    """
+    Apply the effects of double_damage to the target:
+    Next turn, target's attack will do double damage
+
+    :param target: The character being affected
+    :param rules: The ruleset to edit
+    :param added_effects: Additional ability effects
+    :param left: Position of the target (left or right, corresponding to left/right keys in rules dict)
+
+    :return: Updated target, ruleset, and/or added_effects
+    """
+    added_effects.append({'function': 'damage', 'value': 100, 'target': 'target'})
+
+    return target, rules, added_effects

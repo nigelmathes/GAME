@@ -2,7 +2,7 @@
 Actions to perform for characters
 """
 from random import choice
-from typing import Union, Tuple
+from typing import Union, Tuple, Dict
 
 from django.db import transaction
 from django.db.models import F, QuerySet
@@ -47,6 +47,9 @@ class Combat:
                       "dodge": {"beats": ["attack", "block"],
                                 "loses": ["area", "disrupt"]}}
 
+        self.player_added_effects = dict()
+        self.target_added_effects = dict()
+
     def calculate_winner(self):
         """
         Function to calculate the winner
@@ -90,7 +93,7 @@ class Combat:
         if outcome == "player_wins":
             ability = Abilities.objects.get(class_id=player_class, type=self.player_attack_type)
             self.collect_and_resolve_effects(ability, winner=self.player, loser=self.target,
-                                             enhanced=self.player_enhanced)
+                                             added_effects=self.player_added_effects, enhanced=self.player_enhanced)
 
             # Update EX meters
             self.player.ex_meter += 50
@@ -102,7 +105,7 @@ class Combat:
         elif outcome == "target_wins":
             ability = Abilities.objects.get(class_id=target_class, type=self.target_attack_type)
             self.collect_and_resolve_effects(ability, winner=self.target, loser=self.player,
-                                             enhanced=self.player_enhanced)
+                                             added_effects=self.target_added_effects, enhanced=self.player_enhanced)
 
             # Update EX meters
             self.player.ex_meter += 100
@@ -115,12 +118,12 @@ class Combat:
             # Player's attack
             ability1 = Abilities.objects.get(class_id=player_class, type=self.player_attack_type)
             self.collect_and_resolve_effects(ability1, winner=self.player, loser=self.target,
-                                             enhanced=self.player_enhanced)
+                                             added_effects=self.player_added_effects, enhanced=self.player_enhanced)
 
             # Target's attack
             ability2 = Abilities.objects.get(class_id=target_class, type=self.target_attack_type)
             self.collect_and_resolve_effects(ability2, winner=self.target, loser=self.player,
-                                             enhanced=self.player_enhanced)
+                                             added_effects=self.target_added_effects, enhanced=self.player_enhanced)
 
             # Update EX meters
             self.player.ex_meter += 150
@@ -152,10 +155,13 @@ class Combat:
 
             # Loop over statuses and apply them
             for status in player_statuses.values():
-                self.player, self.rules = getattr(combat_effects,
-                                                  'apply_' + status.name)(target=self.player,
-                                                                          rules=self.rules,
-                                                                          left=True)
+                self.player, \
+                self.rules, \
+                self.player_added_effects = getattr(combat_effects,
+                                                    'apply_' + status.name)(target=self.player,
+                                                                            rules=self.rules,
+                                                                            added_effects=self.player_added_effects,
+                                                                            left=True)
 
             # Decrease duration of status effects by 1 turn
             with transaction.atomic():
@@ -170,10 +176,13 @@ class Combat:
 
             # Loop over statuses and apply them
             for status in target_statuses:
-                self.target, self.rules = getattr(combat_effects,
-                                                  'apply_' + status.name)(target=self.target,
-                                                                          rules=self.rules,
-                                                                          left=False)
+                self.target, \
+                self.rules, \
+                self.target_added_effects = getattr(combat_effects,
+                                                    'apply_' + status.name)(target=self.target,
+                                                                            rules=self.rules,
+                                                                            added_effects=self.target_added_effects,
+                                                                            left=False)
 
             # Decrease duration of status effects by 1 turn
             with transaction.atomic():
@@ -182,12 +191,13 @@ class Combat:
             # Delete status effects with 0 duration
             target_statuses.filter(duration=0).delete()
 
-        return self.rules
+        return self.rules, self.player_added_effects, self.target_added_effects
 
     @staticmethod
     def collect_and_resolve_effects(ability: AbilitiesType,
                                     winner: CharacterType,
                                     loser: CharacterType,
+                                    added_effects: Dict,
                                     enhanced: bool = False) -> Tuple[CharacterType, CharacterType]:
         """
         Function to go through the effects tied to a given ability
@@ -200,6 +210,7 @@ class Combat:
                         Abilities.objects.get(class_id=target_class, type=player_attack_type)
         :param winner: The player using the ability
         :param loser: The target/enemy
+        :param added_effects: Additional status enhancements to the ability
         :param enhanced: Boolean to tell if to enhance an attack
 
         :return: Cumulative effect and an update/save call to the database
@@ -212,6 +223,13 @@ class Combat:
                 getattr(combat_effects, 'inflict_' + effect['function'])(value=effect['value'],
                                                                          target=translation_dictionary[
                                                                              effect['target']])
+
+        # Call the added effect functions
+        for added_effect in added_effects:
+            translation_dictionary[added_effect['target']] = \
+                getattr(combat_effects, 'inflict_' + added_effect['function'])(value=added_effect['value'],
+                                                                               target=translation_dictionary[
+                                                                                   added_effect['target']])
 
         # Add enhancement if it exists
         if enhanced:
