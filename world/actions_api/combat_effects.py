@@ -227,3 +227,43 @@ def apply_delayed_double_damage(target, rules, added_effects, left):
     added_effects.append({'function': 'damage', 'value': 100, 'target': 'target'})
 
     return target, rules, added_effects
+
+
+# Enhanced effect of Chemist's Poison Dart
+def inflict_poison(value, target):
+    """
+    Make the target take damage for value rounds by
+    adding the status effect to the target's statuses
+
+    :param value: How long the effect lasts
+    :param target: The character receiving the status effect
+
+    :return: Updated target
+    """
+    status_entry = StatusEffects(character_id=target, name='poison', duration=value)
+
+    # Add the prone status effect to the StatusEffects database
+    status_entry.save()
+
+    return target
+
+
+# Enhanced effect of Chemist's Poison Dart
+def apply_poison(target, rules, added_effects, left):
+    """
+    Apply the effects of poison to the target:
+    Take damage
+
+    :param target: The character being affected
+    :param rules: The ruleset to edit
+    :param added_effects: Additional ability effects
+    :param left: Position of the target (left or right,
+                 corresponding to left/right keys in rules dict)
+
+    :return: Updated target, ruleset, and/or added_effects
+    """
+    # TODO: Should play with the damage value here, find ways to scale it
+    added_effects.append({'function': 'damage', 'value': 100, 'target': 'self'})
+
+    return target, rules, added_effects
+

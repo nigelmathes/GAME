@@ -334,3 +334,5 @@ class CombatTests(TestCase):
         # Assert the status effect was removed from the status database
         #check_status_after_apply = StatusEffects.objects.filter(character_id=player.pk)
         #self.assertFalse(check_status_after_apply.exists())
+
+
