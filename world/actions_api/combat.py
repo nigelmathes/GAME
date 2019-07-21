@@ -85,14 +85,16 @@ class Combat:
         # Check status effects and apply them to the rules of the game
         self.check_and_apply_status()
 
+        # Apply added effects from the statuses
+        self.apply_added_effects()
+
         # Determine the winner
         outcome = self.calculate_winner()
 
         # Player wins!
         if outcome == "player_wins":
             ability = Abilities.objects.get(class_id=player_class, type=self.player_attack_type)
-            self.collect_and_resolve_effects(ability, winner=self.player, loser=self.target,
-                                             added_effects=self.added_effects, enhanced=self.player_enhanced)
+            self.collect_and_resolve_effects(ability, winner=self.player, loser=self.target, enhanced=self.player_enhanced)
 
             # Update EX meters
             self.player.ex_meter += 50
@@ -103,8 +105,7 @@ class Combat:
         # Target wins
         elif outcome == "target_wins":
             ability = Abilities.objects.get(class_id=target_class, type=self.target_attack_type)
-            self.collect_and_resolve_effects(ability, winner=self.target, loser=self.player,
-                                             added_effects=self.added_effects, enhanced=self.player_enhanced)
+            self.collect_and_resolve_effects(ability, winner=self.target, loser=self.player, enhanced=self.player_enhanced)
 
             # Update EX meters
             self.player.ex_meter += 100
@@ -116,13 +117,11 @@ class Combat:
         else:
             # Player's attack
             ability1 = Abilities.objects.get(class_id=player_class, type=self.player_attack_type)
-            self.collect_and_resolve_effects(ability1, winner=self.player, loser=self.target,
-                                             added_effects=self.added_effects, enhanced=self.player_enhanced)
+            self.collect_and_resolve_effects(ability1, winner=self.player, loser=self.target, enhanced=self.player_enhanced)
 
             # Target's attack
             ability2 = Abilities.objects.get(class_id=target_class, type=self.target_attack_type)
-            self.collect_and_resolve_effects(ability2, winner=self.target, loser=self.player,
-                                             added_effects=self.added_effects, enhanced=self.player_enhanced)
+            self.collect_and_resolve_effects(ability2, winner=self.target, loser=self.player, enhanced=self.player_enhanced)
 
             # Update EX meters
             self.player.ex_meter += 150
@@ -196,7 +195,6 @@ class Combat:
     def collect_and_resolve_effects(ability: AbilitiesType,
                                     winner: CharacterType,
                                     loser: CharacterType,
-                                    added_effects: List,
                                     enhanced: bool = False) -> Tuple[CharacterType, CharacterType]:
         """
         Function to go through the effects tied to a given ability
@@ -223,18 +221,6 @@ class Combat:
                                                                          target=translation_dictionary[
                                                                              effect['target']])
 
-        print(f"Before: {added_effects}")
-        # Call the added effect functions
-        for added_effect in added_effects:
-            print(f"Added effect value: {added_effect}")
-            translation_dictionary[added_effect['target']] = \
-                getattr(combat_effects, 'inflict_' + added_effect['function'])(value=added_effect['value'],
-                                                                               target=translation_dictionary[
-                                                                                   added_effect['target']])
-            # Consume the effect by removing it
-            added_effects.remove(added_effect)
-        print(f"After: {added_effects}")
-
         # Add enhancement if it exists
         if enhanced:
             for enhancement in ability.ability_enhancements.values():
@@ -243,3 +229,19 @@ class Combat:
                                                                                   target=translation_dictionary[
                                                                                       enhancement['target']])
         return winner, loser
+
+    def apply_added_effects(self):
+        """
+        Method to apply things from the self.added_effects list
+
+        :return: Updated player and target objects
+        """
+        # Call the added effect functions
+        for added_effect in self.added_effects:
+            added_effect['target'] = \
+                getattr(combat_effects, 'inflict_' + added_effect['function'])(value=added_effect['value'],
+                                                                               target=added_effect['target'])
+            # Consume the effect by removing it
+            self.added_effects.remove(added_effect)
+
+        return self.player, self.target

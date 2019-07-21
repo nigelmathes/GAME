@@ -17,15 +17,15 @@ def inflict_damage(value, target):
 
 def inflict_percent_damage(value, target):
     """
-    Deal percent health damage
+    Deal percent max health damage
 
-    :param value: How much % of current HP damage to do to target
+    :param value: How much % of max HP damage to do to target
     :param target: The character being damaged
 
     :return: Updated target
     """
-    target.hit_points -= (value / 100.) * target.hit_points
-    print(f"Inflicted {(value / 100.) * target.hit_points} damage via poison!")
+    target.hit_points -= (value / 100.) * target.max_hit_points
+    print(f"Inflicted {(value / 100.) * target.max_hit_points} damage via poison!")
 
     return target
 
@@ -267,7 +267,7 @@ def inflict_poison(value, target):
 def apply_poison(target, rules, added_effects, left):
     """
     Apply the effects of poison to the target:
-    Take 10% HP damage
+    Take 10% max HP damage
 
     :param target: The character being affected
     :param rules: The ruleset to edit
@@ -277,10 +277,7 @@ def apply_poison(target, rules, added_effects, left):
 
     :return: Updated target, ruleset, and/or added_effects
     """
-    if left:
-        added_effects.append({'function': 'percent_damage', 'value': 10, 'target': 'self'})
-    else:
-        added_effects.append({'function': 'percent_damage', 'value': 10, 'target': 'target'})
+    added_effects.append({'function': 'percent_damage', 'value': 10, 'target': target})
 
     return target, rules, added_effects
 

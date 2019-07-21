@@ -313,11 +313,11 @@ class CombatTests(TestCase):
         self.assertEqual(check_status.name, 'poison')
         self.assertEqual(check_status.duration, 2)
 
-        # Attack a second time to apply poison
+        # Attack a second time, player loses, make sure poison still applies
         object_to_test = Combat(player=player,
                                 target=target,
-                                player_attack_type="attack",
-                                target_attack_type="area",
+                                player_attack_type="area",
+                                target_attack_type="attack",
                                 player_enhanced=False)
         _ = object_to_test.do_combat_round()
 
@@ -326,9 +326,10 @@ class CombatTests(TestCase):
         self.assertEqual(check_status.name, 'poison')
         self.assertEqual(check_status.duration, 1)
 
-        # Assert the target took 100 + 30 damage
-        self.assertEqual(player.hit_points, 500)
-        self.assertEqual(target.hit_points, 270)
+        # Assert the player took 100 damage from losing round and target
+        # took 50 damage from poison
+        self.assertEqual(player.hit_points, 400)
+        self.assertEqual(target.hit_points, 350)
 
         # Assert rules didn't change
         self.assertDictEqual(object_to_test.rules, expected_rules)

@@ -15,6 +15,7 @@ class Character(models.Model):
     in_combat = models.BooleanField(default=False)
     target = models.CharField(max_length=50, default="None")
     hit_points = models.IntegerField(default=500)
+    max_hit_points = models.IntegerField(default=500)
     ex_meter = models.IntegerField(default=0)
     appearance = models.TextField(default="No entry - you must be hella ugly")
 
