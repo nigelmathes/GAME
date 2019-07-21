@@ -15,6 +15,21 @@ def inflict_damage(value, target):
     return target
 
 
+def inflict_percent_damage(value, target):
+    """
+    Deal percent health damage
+
+    :param value: How much % of current HP damage to do to target
+    :param target: The character being damaged
+
+    :return: Updated target
+    """
+    target.hit_points -= (value / 100.) * target.hit_points
+    print(f"Inflicted {(value / 100.) * target.hit_points} damage via poison!")
+
+    return target
+
+
 def inflict_heal(value, target):
     """
     Do healing
@@ -96,7 +111,7 @@ def inflict_disorient(value, target):
     """
     status_entry = StatusEffects(character_id=target, name='disorient', duration=value)
 
-    # Add the prone status effect to the StatusEffects database
+    # Add the disorient status effect to the StatusEffects database
     status_entry.save()
 
     return target
@@ -150,7 +165,7 @@ def inflict_haste(value, target):
     """
     status_entry = StatusEffects(character_id=target, name='haste', duration=value)
 
-    # Add the prone status effect to the StatusEffects database
+    # Add the haste status effect to the StatusEffects database
     status_entry.save()
 
     return target
@@ -205,7 +220,7 @@ def inflict_delayed_double_damage(value, target):
     """
     status_entry = StatusEffects(character_id=target, name='double_damage', duration=value)
 
-    # Add the prone status effect to the StatusEffects database
+    # Add the double damage status effect to the StatusEffects database
     status_entry.save()
 
     return target
@@ -242,7 +257,7 @@ def inflict_poison(value, target):
     """
     status_entry = StatusEffects(character_id=target, name='poison', duration=value)
 
-    # Add the prone status effect to the StatusEffects database
+    # Add the poison status effect to the StatusEffects database
     status_entry.save()
 
     return target
@@ -252,7 +267,7 @@ def inflict_poison(value, target):
 def apply_poison(target, rules, added_effects, left):
     """
     Apply the effects of poison to the target:
-    Take damage
+    Take 10% HP damage
 
     :param target: The character being affected
     :param rules: The ruleset to edit
@@ -262,8 +277,10 @@ def apply_poison(target, rules, added_effects, left):
 
     :return: Updated target, ruleset, and/or added_effects
     """
-    # TODO: Should play with the damage value here, find ways to scale it
-    added_effects.append({'function': 'damage', 'value': 100, 'target': 'self'})
+    if left:
+        added_effects.append({'function': 'percent_damage', 'value': 10, 'target': 'self'})
+    else:
+        added_effects.append({'function': 'percent_damage', 'value': 10, 'target': 'target'})
 
     return target, rules, added_effects
 

@@ -225,7 +225,7 @@ class CombatTests(TestCase):
         _ = object_to_test.do_combat_round()
 
         # Check and apply the status effect
-        new_rules, _, _ = object_to_test.check_and_apply_status()
+        new_rules, _ = object_to_test.check_and_apply_status()
 
         # Change the attack type to something that applies to the altered ruleset
         object_to_test.player_attack_type = "area"
@@ -276,11 +276,15 @@ class CombatTests(TestCase):
         # Assert rules didn't change
         self.assertDictEqual(object_to_test.rules, expected_rules)
 
-    def test_added_effect(self):
-        """ Check that an extra effect is added for the double damage status"""
+    def test_percent_hp_damage(self):
+        """
+        Check that an extra effect is added for the poison status
+        and the damage is correct
+        """
         # Arrange
-        player = Character.objects.get(pk=3)
-        target = Character.objects.get(pk=2)
+        player = Character.objects.get(pk=4)  # Chemist; Moira_IRL
+        target = Character.objects.get(pk=2)  # Cloistered; Crunchbucket
+
         expected_rules = {"area": {"beats": ["disrupt", "dodge"],
                                    "loses": ["attack", "block"]},
                           "attack": {"beats": ["disrupt", "area"],
@@ -292,10 +296,6 @@ class CombatTests(TestCase):
                           "dodge": {"beats": ["attack", "block"],
                                     "loses": ["area", "disrupt"]}}
 
-        expected_status = {}
-        expected_player_added_effects = {}
-        expected_target_added_effects = {}
-
         object_to_test = Combat(player=player,
                                 target=target,
                                 player_attack_type="attack",
@@ -306,33 +306,29 @@ class CombatTests(TestCase):
         # Inflict a status effect and check HP's
         _ = object_to_test.do_combat_round()
         self.assertEqual(player.hit_points, 500)
-        self.assertEqual(target.hit_points, 300)
+        self.assertEqual(target.hit_points, 400)
 
-        # Check status effect applied to player
-        #check_status = StatusEffects.objects.filter(character_id=player.pk)
-        #self.assertEqual(check_status, expected_status)
+        # Check status effect applied to target
+        check_status = StatusEffects.objects.get(character_id=target.pk)
+        self.assertEqual(check_status.name, 'poison')
+        self.assertEqual(check_status.duration, 2)
 
-        # Apply status effect
-        #new_rules, player_added_effects, target_added_effects = object_to_test.check_and_apply_status()
+        # Attack a second time to apply poison
+        object_to_test = Combat(player=player,
+                                target=target,
+                                player_attack_type="attack",
+                                target_attack_type="area",
+                                player_enhanced=False)
+        _ = object_to_test.do_combat_round()
 
-        # Check that added effects worked
-        #self.assertEqual(player_added_effects, expected_player_added_effects)
-        #self.assertEqual(target_added_effects, expected_target_added_effects)
+        # Check status effect decreased in duration by 1 and was not removed
+        check_status = StatusEffects.objects.get(character_id=target.pk)
+        self.assertEqual(check_status.name, 'poison')
+        self.assertEqual(check_status.duration, 1)
 
-        # Attack a second time to apply double damage
-        #object_to_test.player_enhanced = False
-        #_ = object_to_test.do_combat_round()
-
-        # Assert the target took 200 damage
-        #self.assertEqual(player.hit_points, 500)
-        #self.assertEqual(target.hit_points, 200)
+        # Assert the target took 100 + 30 damage
+        self.assertEqual(player.hit_points, 500)
+        self.assertEqual(target.hit_points, 270)
 
         # Assert rules didn't change
-        #self.assertDictEqual(new_rules, expected_rules)
-        #self.assertDictEqual(object_to_test.rules, expected_rules)
-
-        # Assert the status effect was removed from the status database
-        #check_status_after_apply = StatusEffects.objects.filter(character_id=player.pk)
-        #self.assertFalse(check_status_after_apply.exists())
-
-
+        self.assertDictEqual(object_to_test.rules, expected_rules)
