@@ -2,7 +2,7 @@
 Actions to perform for characters
 """
 from random import choice
-from typing import Union, Tuple, List
+from typing import Union, Tuple
 
 from django.db import transaction
 from django.db.models import F, QuerySet
@@ -245,3 +245,16 @@ class Combat:
             self.added_effects.remove(added_effect)
 
         return self.player, self.target
+
+    def check_dead(self):
+        """
+        Method to check if either player is dead, and if so, stop combat
+
+        :return: TODO: Not sure what to return here yet
+        """
+        if self.player.hit_points < 0:
+            print(f"{self.player.name} IS DEAD")
+        if self.target.hit_points < 0:
+            print(f"{self.target.name} IS DEAD")
+
+        return None
