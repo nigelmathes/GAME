@@ -1,20 +1,19 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
+
+[dev-packages]
 
 [packages]
 django = "*"
 djangorestframework = "*"
-"psycopg2" = "*"
-pylint = "*"
-"pep8" = "*"
-"autopep8" = "*"
 spacy = "*"
-djangorestframework-gis = "*"
-
-[dev-packages]
-coverage = "*"
+psycopg2 = "*"
+rasa-core-sdk = "*"
+pyyaml = "*"
+mock = "*"
+django-extensions = "*"
 
 [requires]
 python_version = "3.7"

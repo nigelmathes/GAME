@@ -1,8 +1,35 @@
+## Viewing/editing game database files
+#### GET/POST to view and create new things
+```
+http://localhost:8000/abilities/
+```
+#### PUT/DELETE to view and update or delete existing things
+```
+http://localhost:8000/abilities/1
+```
+
 ## Useful commands:
+Get things up and running after changing models:
+```
+pipenv run python world/manage.py makemigrations
+pipenv run python world/manage.py migrate
+pipenv run python world/manage.py runserver
+```
 
-Seed the database with commands.json:
+Backup the database:
+```
+./backup_database.sh
+```
 
-```python manage.py loaddata commands```
+Load from database backup, destroying anything not in the backup:
+```
+pipenv run python manage.py syncdata full_backup.json
+```
+
+Load from database backup, destroying nothing:
+```
+pipenv run python manage.py loaddata full_backup.json
+```
 
 To Create PostgreSQL database:
 
@@ -20,6 +47,7 @@ createdb
 psql -h localhost
 
 In psql shell:
+
 # Nigel=# CREATE USER Nigel;
 # CREATE ROLE
 # Nigel=# CREATE DATABASE commands_db OWNER Nigel;
@@ -28,24 +56,5 @@ In psql shell:
 python manage.py migrate
 ```
 
-# Use curl to send POST requests
+## Use curl to send POST requests
 ```curl --data "test_val=test123" http://127.0.0.1:8888/api/input_command/```
-
-## Useful constructs:
-
-WEAPON_PROTOTYPES = {
-    "weapon": {
-        "typeclass": "evennia.contrib.tutorial_world.objects.Weapon",
-        "key": "Weapon",
-        "hit": 0.2,
-        "parry": 0.2,
-        "damage": 1.0,
-        "magic": False,
-        "desc": "A generic blade."},
-    "knife": {
-        "prototype": "weapon",
-        "aliases": "sword",
-        "key": "Kitchen knife",
-        "desc": "A rusty kitchen knife. Better than nothing.",
-        "damage": 3}
-}

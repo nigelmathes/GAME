@@ -8,6 +8,7 @@ router.register(r'character', views.CharacterViewSet)
 router.register(r'users', views.UserViewSet)
 router.register(r'abilities', views.AbilityViewSet)
 router.register(r'effects', views.AbilityEffectViewSet)
+router.register(r'enhancements', views.AbilityEnhancementsViewSet)
 router.register(r'classes', views.PlayerClassesViewSet)
 
 # The API URLs are now determined automatically by the router.
