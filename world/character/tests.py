@@ -7,7 +7,8 @@ from character.models import Character, StatusEffects
 
 
 class CombatTests(TestCase):
-    fixtures = [os.path.join("/Users", "Nigel", "HOBBY_PROJECTS", "GAME", "world", "full_backup.json")]
+    fixtures = [os.path.join("/Users", "Nigel", "HOBBY_PROJECTS", "GAME", "world",
+                             "full_backup.json")]
 
     def test_combat_round(self):
         """
@@ -77,9 +78,24 @@ class CombatTests(TestCase):
 
                 player, target = object_to_test.do_combat_round()
 
-                # Assert - The 400 is a kluge because I don't want to remake the list above
+                # Assert - The 400 is a kluge because I don't want to remake the list
                 self.assertEqual(player.hit_points, 400 + expected_player_hps[i][j])
                 self.assertEqual(target.hit_points, 400 + expected_target_hps[i][j])
+
+    def test_check_dead(self):
+        """ Test that the check_dead() method works as expected """
+        # Arrange
+        player = Character.objects.get(pk=1)
+        target = Character.objects.get(pk=2)
+        player.hit_points = 0
+        object_to_test = Combat(player=player,
+                                target=target,
+                                player_attack_type="attack",
+                                target_attack_type="area")
+
+        # Act & Assert
+        result = object_to_test.check_dead()
+        self.assertTrue(result)
 
     # TODO: Make a healing ability and alter this test
     def test_healing(self):
@@ -330,6 +346,65 @@ class CombatTests(TestCase):
         # took 50 damage from poison
         self.assertEqual(player.hit_points, 400)
         self.assertEqual(target.hit_points, 350)
+
+        # Assert rules didn't change
+        self.assertDictEqual(object_to_test.rules, expected_rules)
+
+    def test_target_dies_to_status(self):
+        """
+        Check that an extra effect is added for the poison status
+        and the damage is correct. Then, check that because the target dies to
+        poison, the subsequent combat round does not occur.
+        """
+        # Arrange
+        player = Character.objects.get(pk=4)  # Chemist; Moira_IRL
+        target = Character.objects.get(pk=2)  # Cloistered; Crunchbucket
+        target.hit_points = 150
+        expected_rules = {"area": {"beats": ["disrupt", "dodge"],
+                                   "loses": ["attack", "block"]},
+                          "attack": {"beats": ["disrupt", "area"],
+                                     "loses": ["block", "dodge"]},
+                          "block": {"beats": ["area", "attack"],
+                                    "loses": ["disrupt", "dodge"]},
+                          "disrupt": {"beats": ["block", "dodge"],
+                                      "loses": ["attack", "area"]},
+                          "dodge": {"beats": ["attack", "block"],
+                                    "loses": ["area", "disrupt"]}}
+
+        object_to_test = Combat(player=player,
+                                target=target,
+                                player_attack_type="attack",
+                                target_attack_type="area",
+                                player_enhanced=True)
+
+        # Act
+        # Inflict a status effect and check HP's
+        _ = object_to_test.do_combat_round()
+        self.assertEqual(player.hit_points, 500)
+        self.assertEqual(target.hit_points, 50)
+
+        # Check status effect applied to target
+        check_status = StatusEffects.objects.get(character_id=target.pk)
+        self.assertEqual(check_status.name, 'poison')
+        self.assertEqual(check_status.duration, 2)
+
+        # Attack a second time, player loses, make sure poison still applies
+        object_to_test = Combat(player=player,
+                                target=target,
+                                player_attack_type="area",
+                                target_attack_type="attack",
+                                player_enhanced=False)
+        _ = object_to_test.do_combat_round()
+
+        # Check status effect decreased in duration by 1 and was not removed
+        check_status = StatusEffects.objects.get(character_id=target.pk)
+        self.assertEqual(check_status.name, 'poison')
+        self.assertEqual(check_status.duration, 1)
+
+        # Assert the player did not take 100 damage from losing,
+        # and target took 50 damage from poison, killing them
+        self.assertEqual(player.hit_points, 500)
+        self.assertEqual(target.hit_points, 0)
 
         # Assert rules didn't change
         self.assertDictEqual(object_to_test.rules, expected_rules)

@@ -85,8 +85,16 @@ class Combat:
         # Check status effects and apply them to the rules of the game
         self.check_and_apply_status()
 
-        # Apply added effects from the statuses
+        # Apply added effects from the statuses - action here
         self.apply_added_effects()
+
+        # Check if anyone died from added effects
+        if self.check_dead():
+            if self.player.hit_points == 0:
+                print("Player died.")
+            else:
+                print("Target died.")
+            return self.player, self.target
 
         # Determine the winner
         outcome = self.calculate_winner()
@@ -248,13 +256,13 @@ class Combat:
 
     def check_dead(self):
         """
-        Method to check if either player is dead, and if so, stop combat
+        Method to check if either player is dead
 
-        :return: TODO: Not sure what to return here yet
+        :return: True if somebody is dead, else False
         """
-        if self.player.hit_points < 0:
-            print(f"{self.player.name} IS DEAD")
-        if self.target.hit_points < 0:
-            print(f"{self.target.name} IS DEAD")
-
-        return None
+        if self.player.hit_points <= 0:
+            return True
+        elif self.target.hit_points <= 0:
+            return True
+        else:
+            return False
